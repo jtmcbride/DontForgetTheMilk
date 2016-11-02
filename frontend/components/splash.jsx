@@ -4,6 +4,8 @@ import { Link, withRouter } from 'react-router';
 
 const Splash = () => (
 	<div>
+		<header>
+		</header>
 		<h1>Milk</h1>
 		<Link to='login'>Login</Link>
 		<Link to='signup'>Sign Up</Link>

@@ -41,16 +41,21 @@ sufficient CSS styling:
 
 **Objective:** Functioning rails project with front-end Authentication
 
-### Phase 2: Tasks and List Models, API, and components (3 days)
+### Phase 2: Tasks Models, API, and components (2 days)
 
-**Objective:** Tasks and lists can be created, read, edited and destroyed through
+**Objective:** Tasks can be created, read, edited and destroyed through
 the API.
 
-### Phase 3: List Summary (1 day)
+### Phase 3: List Models, API, and components (2 days)
+
+**Objective:** Tasks can be created, read, edited and destroyed through
+the API.
+
+### Phase 4: List Summary (1 day)
 
 **Objective:** Lists have summaries about them displayed when clicked on.
 
-### Phase 4: Search (2 days)
+### Phase 5: Search (2 days)
 
 **Objective:** Tasks can be searched and results displayed in a list.
 

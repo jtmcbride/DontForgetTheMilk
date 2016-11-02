@@ -1,0 +1,87 @@
+// Place all the styles related to the api/sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.left-half {
+	float: left;
+	width: 50%;
+	height: 100vh;
+	background: #0060BF;
+	padding-top: 250px;
+}
+
+.left-half > .logo {
+	width: 50%;
+	margin: 0 auto;
+	font-size: 100px;
+}
+
+.right-half {
+	float: right;
+	width: 50%;
+	height: 100vh;
+}
+
+.right-half  form {
+	padding: 200px 10px  0 10px;
+	max-width: 500px;
+}
+
+.right-half  form  input {
+	width: 95%;
+	height: 50px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	transition: border-color .2s ease-in;
+	font-size: 25px;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+     box-sizing: border-box;
+}
+
+.right-half form  input:focus {
+	border-color: #66afe9;
+}
+
+.right-half  form  button {
+	width: 95%;
+	height: 50px;
+	border: none;
+	padding: 0 10px 0 10px;
+	margin: none;
+	border-radius: 3px;
+	vertical-align: center;
+	background-color: #009dff;
+	transition: background-color .1s ease-in;
+	color: white;
+	font-size: 25px;
+	cursor: pointer;
+}
+
+
+.right-half  form button:hover {
+	background-color: #007ecc;
+}
+
+
+.form-errors {
+	color: red;
+}
+
+.other-form {
+	margin: 20px 25px 0 0;
+	float: right;
+	border-radius: 3px;
+	border: none;
+	vertical-align: center;
+	background-color: #009dff;
+	transition: background-color .1s ease-in;
+	color: white;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.other-form:hover {
+	background-color: #007ecc;
+}
