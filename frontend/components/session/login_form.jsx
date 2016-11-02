@@ -9,9 +9,11 @@ class LoginForm extends React.Component {
 		this.state = {
 			username: "",
 			password: ""
-		}
-	  this.processForm = this.props.processForm.bind(this);
-	  this.handleSubmit = this.handleSubmit.bind(this);
+		};
+
+	    this.processForm = this.props.processForm.bind(this);
+	    this.handleSubmit = this.handleSubmit.bind(this);
+	    this.handleDemo = this.handleDemo.bind(this);
 	}
 
 	componentDidUpdate() {
@@ -35,8 +37,18 @@ class LoginForm extends React.Component {
 		this.processForm(this.state);
 	}
 
-	errors() {
-	  return this.props.errors.map((error, i) => <li key={i}>{error}</li>);
+	handleDemo(e) {
+		e.preventDefault();
+		this.processForm({
+			username: "guest",
+			password: "password"
+		});
+	}
+
+	errors(errorType) {
+		if (this.props.errors[errorType]) {
+			return this.props.errors[errorType].map((error, i) => <li key={i}>{error}</li>);
+		}
 	}
 
 	render(){
@@ -56,7 +68,7 @@ class LoginForm extends React.Component {
 			  	<form>
 			  		<h3>Welcome Back!</h3>
 					 <ul className="form-errors">
-						{this.errors()}
+						{this.errors("login")}
 					</ul>
 					
 						<input 
@@ -71,6 +83,7 @@ class LoginForm extends React.Component {
 						     value={this.state.password} 
 					     />				     
 						<button onClick={this.handleSubmit}>Login</button>
+						<button onClick={this.handleDemo}>Demo Login</button>
 	
 				</form>
 			</div>

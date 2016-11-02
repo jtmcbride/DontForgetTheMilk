@@ -14,9 +14,12 @@ const Splash = () => (
 		<main className="splash">
 			<Link to="signup"><button>Sign Up</button></Link>
 			<div><img src="https://www.rememberthemilk.com/img/hp_steve_3.png" /></div>
-			<div>Todos</div>
+			<div className="logo">Get More Done!</div>
 		</main>
 		<footer className="splash-footer">
+			<a href="#">Github</a>
+			<a href="#">LinkedIn</a>
+			<a href="#">Shtuff</a>
 		</footer>
 	</div>
 	);
