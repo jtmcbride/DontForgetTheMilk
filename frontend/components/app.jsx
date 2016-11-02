@@ -1,12 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-import HeaderContainer from './header/header_container'
+import HeaderContainer from './header/header_container';
+import List from './list/list';
 
 const App = ({children}) => {
 		return (
-			<div>
+			<div className="app">
 				<HeaderContainer />
-				<h1>App</h1>
+				<List />
 				{children}
 			</div>);
 }

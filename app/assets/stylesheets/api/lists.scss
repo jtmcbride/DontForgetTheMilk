@@ -108,6 +108,8 @@ header .header-settings {
 	justify-content: space-between;
 	right: 15px;
 	width: 45px;
+	padding-right: 3px;
+	margin-right: 5px;
 }
 
 .header-settings > span {
@@ -115,7 +117,7 @@ header .header-settings {
 	color:#99bfe4;
 	font-size: 20px;
 	cursor: pointer;
-	padding: 5px;
+	padding: 6px;
 }
 
 .header-settings > span:hover {
@@ -152,3 +154,69 @@ header .header-settings {
 .settings:hover > .dropdown {
 	display: inline-block;
 }
+
+.app {
+	background: #D9E7F5;
+	height: 100vh;
+}
+
+
+.list {
+	background: white;
+	border-radius: 8px;
+	width: 50%;
+	margin: 30px; // temporary
+	height: 100vh;
+}
+
+.list-tabs {
+	position: relative;
+	left: 75%;
+	display: flex;
+}
+
+.task-form {
+	border-top: 1px dotted lightgrey;
+	border-bottom: 1px dotted lightgrey;
+	transition: height .2s ease-in;
+}
+
+.task-form > * {
+	height: 30px;
+	border-radius: 3px;
+	padding: 5px;
+	font-size: 15px;
+}
+
+.task-form > input {
+	border: 1px solid lightgrey;
+	margin: 15px;
+	width: 80%;
+	display: inline-block;
+}
+
+.task-form > button {
+	display: inline-block;
+	background: #2E8CEB;
+	color: white;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.tasks > li {
+	border-bottom: 1px solid lightgrey;
+}
+
+.priority {
+	width: 3px;
+	background: black;
+}
+// .task-form .add-task {
+// 	display: none;
+// }
+
+
+// .task-form:focus + .add-task {
+// 	display: block;
+// }
+

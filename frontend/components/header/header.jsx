@@ -20,7 +20,7 @@ export default class Header extends React.Component {
 					<div className="header-settings">
 						<span className="notifications"></span>
 						<div className="divider"></div>
-						<span className="settings"><ul className="dropdown"><li onClick={this.props.logout}>Logout</li></ul></span>
+						<span className="settings"><ul className="dropdown"><li>{this.props.user.username}</li><li onClick={this.props.logout}>Logout</li></ul></span>
 					</div>
 				</div>
 			</header>

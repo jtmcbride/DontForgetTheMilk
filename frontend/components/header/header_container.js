@@ -4,7 +4,7 @@ import Header from './header';
 
 
 const mapStateToProps = (state) => ({
-
+  user: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch) => ({
