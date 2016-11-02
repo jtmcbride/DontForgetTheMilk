@@ -23,8 +23,9 @@ class SignupForm extends React.Component {
 	  return e => this.setState({ [name]: e.target.value })
 	}
 
-	handleSubmit() {
-	  this.processForm(this.state);
+	handleSubmit(e) {
+		e.preventDefault();
+		this.processForm(this.state);
 	}
 
 	errors(errorType) {
@@ -43,17 +44,17 @@ class SignupForm extends React.Component {
 
 	  return (
 		  <div>
-		  	<Link to="login"><button className="other-form">Login</button></Link>
-		  	<div className="left-half">
-		  		<h3 className="logo">Don't Forget The Milk!</h3>
-		  		<div className="signup-images">
-		  			<div className="circle"><img  src="https://www.rememberthemilk.com/img/hp_person3.png"/></div>
-		  			<div className="circle"><img  src="https://www.rememberthemilk.com/img/hp_person2.png"/></div>
-		  			<div className="circle"><img  src="https://www.rememberthemilk.com/img/hp_person4.png"/></div>
-		  		</div>
-		  	</div>
-		  	<div className="right-half">
-			  	<form>
+			<Link to="login"><button className="other-form">Login</button></Link>
+			<div className="left-half">
+				<h3 className="logo">Don't Forget The Milk!</h3>
+				<div className="signup-images">
+					<div className="circle"><img  src="https://www.rememberthemilk.com/img/hp_person3.png"/></div>
+					<div className="circle"><img  src="https://www.rememberthemilk.com/img/hp_person2.png"/></div>
+					<div className="circle"><img  src="https://www.rememberthemilk.com/img/hp_person4.png"/></div>
+				</div>
+			</div>
+			<div className="right-half">
+				<form>
 					<input 
 						placeholder="Username" 
 						onChange={this.handleChange("username")} 
@@ -72,14 +73,14 @@ class SignupForm extends React.Component {
 					<ul className="form-errors">
 						{this.errors("email")}
 					</ul>
-				    <input
-					     placeholder="Password" 
-					     type="password" 
-					     onChange={this.handleChange("password")} 
-					     value={this.state.password} 
-					     className={this.props.errors["password"] ? "invalid" : null}
-				     />
-				     <ul className="form-errors">
+					<input
+						 placeholder="Password" 
+						 type="password" 
+						 onChange={this.handleChange("password")} 
+						 value={this.state.password} 
+						 className={this.props.errors["password"] ? "invalid" : null}
+					 />
+					 <ul className="form-errors">
 						{this.errors("password")}
 					</ul>
 
