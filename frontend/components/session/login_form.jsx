@@ -45,10 +45,16 @@ class LoginForm extends React.Component {
 		  <div>
 		  	<Link to="signup"><button className="other-form">Sign Up</button></Link>
 		  	<div className="left-half">
-		  		<h1 className="logo">Logo</h1>
+		  		<h3 className="logo">Don't Forget The Milk!</h3>
+		  		<div className="signup-images">
+		  			<div className="circle"><img  src="https://www.rememberthemilk.com/img/hp_person3.png"/></div>
+		  			<div className="circle"><img  src="https://www.rememberthemilk.com/img/hp_person2.png"/></div>
+		  			<div className="circle"><img  src="https://www.rememberthemilk.com/img/hp_person4.png"/></div>
+		  		</div>
 		  	</div>
 		  	<div className="right-half">
 			  	<form>
+			  		<h3>Welcome Back!</h3>
 					 <ul className="form-errors">
 						{this.errors()}
 					</ul>

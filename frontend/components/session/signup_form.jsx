@@ -45,7 +45,12 @@ class SignupForm extends React.Component {
 		  <div>
 		  	<Link to="login"><button className="other-form">Login</button></Link>
 		  	<div className="left-half">
-		  		<h1 className="logo">Logo</h1>
+		  		<h3 className="logo">Don't Forget The Milk!</h3>
+		  		<div className="signup-images">
+		  			<div className="circle"><img  src="https://www.rememberthemilk.com/img/hp_person3.png"/></div>
+		  			<div className="circle"><img  src="https://www.rememberthemilk.com/img/hp_person2.png"/></div>
+		  			<div className="circle"><img  src="https://www.rememberthemilk.com/img/hp_person4.png"/></div>
+		  		</div>
 		  	</div>
 		  	<div className="right-half">
 			  	<form>
@@ -53,6 +58,7 @@ class SignupForm extends React.Component {
 						placeholder="Username" 
 						onChange={this.handleChange("username")} 
 						value={this.state.username} 
+						className={this.props.errors["username"] ? "invalid" : null}
 					/>
 					<ul className="form-errors">
 						{this.errors("username")}
@@ -61,6 +67,7 @@ class SignupForm extends React.Component {
 						placeholder="Email" 
 						onChange={this.handleChange("email")} 
 						value={this.state.email} 
+						className={this.props.errors["email"] ? "invalid" : null}
 					/>
 					<ul className="form-errors">
 						{this.errors("email")}
@@ -70,6 +77,7 @@ class SignupForm extends React.Component {
 					     type="password" 
 					     onChange={this.handleChange("password")} 
 					     value={this.state.password} 
+					     className={this.props.errors["password"] ? "invalid" : null}
 				     />
 				     <ul className="form-errors">
 						{this.errors("password")}

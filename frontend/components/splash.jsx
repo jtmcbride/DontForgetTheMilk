@@ -4,11 +4,20 @@ import { Link, withRouter } from 'react-router';
 
 const Splash = () => (
 	<div>
-		<header>
+		<header className="splash-header">
+			<h1 className="logo">Don't Forget The Milk</h1>
+			<div className="splash-header-links">
+				<Link to='login'>Login</Link>
+				<Link to='signup'>Sign Up</Link>
+			</div>
 		</header>
-		<h1>Milk</h1>
-		<Link to='login'>Login</Link>
-		<Link to='signup'>Sign Up</Link>
+		<main className="splash">
+			<Link to="signup"><button>Sign Up</button></Link>
+			<div><img src="https://www.rememberthemilk.com/img/hp_steve_3.png" /></div>
+			<div>Todos</div>
+		</main>
+		<footer className="splash-footer">
+		</footer>
 	</div>
 	);
 
