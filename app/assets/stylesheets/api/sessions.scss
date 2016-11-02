@@ -167,8 +167,7 @@ header.splash-header > * {
 
 .splash {
 	height: 750px;
-	position: relative;
-	top: 30px;
+	padding-top: 30px;
 	background-color: #0060BF;
 	display: flex;
 	flex-direction: column;
@@ -181,17 +180,16 @@ header.splash-header > * {
 	width: 35%;
 	height: 50px;
 	border: none;
-	padding: 0 10px 0 10px;
 	margin: none;
 	border-radius: 3px;
 	vertical-align: center;
 	background-color: #009dff;
-	transition: background-color .1s ease-in;
-	cursor: pointer;
+	
 }
 
 
-.splash  a:hover {
+.splash  button:hover {
+	cursor: pointer;
 	background-color: #007ecc;
 }
 
@@ -200,11 +198,15 @@ header.splash-header > * {
 	height: 100%;
 	background-color: #009dff;
 	border: none;
+	padding: none;
 	color: white;
 	font-size: 25px;
+	border-radius: 3px;
+	transition: background-color .1s ease-in;
 }
 
 .splash-footer {
 	height: 100px;
+	border-top: 1px solid black;
 }
 
