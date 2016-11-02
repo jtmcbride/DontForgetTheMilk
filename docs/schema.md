@@ -17,7 +17,7 @@ list_id            | integer   | foreign key (references lists), indexed
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-user_id     | integer   | not null, foreign key (references users), indexed, unique
+user_id     | integer   | not null, foreign key (references users), indexed
 name        | string    | not null, indexed, unique [creator_id]
 
 

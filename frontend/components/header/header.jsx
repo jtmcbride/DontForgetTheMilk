@@ -2,25 +2,30 @@ import React from 'react';
 import { withRouter, Link } from 'react-router';
 
 
-class LoginForm extends React.Component {
+export default class Header extends React.Component {
+
+	constructor(props) {
+		super(props)
+	}
 	
 	render(){
 
 		return (
-			<header id="header" class="header">
-				<div class="header-main">
-					<div class="header-search">
+			<header id="header" className="header">
+				<div className="header-main">
+					<div className="header-search">
 					<input aria-label="Search Tasks" placeholder="Search Tasks" />
-					<div class="search-button" id="header-search-button"></div>
+					<div className="search-button" id="header-search-button"></div>
 					</div>
-					<div class="header-settings">
-						<span class="notifications"></span>
-						<div class="divider"></div>
-						<span class="settings"></span>
+					<div className="header-settings">
+						<span className="notifications"></span>
+						<div className="divider"></div>
+						<span className="settings"><ul className="dropdown"><li onClick={this.props.logout}>Logout</li></ul></span>
 					</div>
 				</div>
-
 			</header>
 		)
 	}
 }
+
+

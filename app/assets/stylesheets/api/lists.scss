@@ -1,0 +1,154 @@
+// Place all the styles related to the api/lists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+header.header {
+	width: 100%;
+	height: 32px;
+	background: #0060BF;
+}
+
+.header-main {
+	float: right;
+	display: flex;
+	justify-content: space-between;
+	width: 83%;
+}
+
+.header-search {
+	display: flex;
+	justify-content: space-between;
+	width: 40%;
+	max-width: 365px;
+	padding-top: 4px;
+	margin: 0;
+}
+
+.header-search .search-button:after {
+	content: "\f002";
+	font-family: "FontAwesome";
+	color: white;
+}
+
+.header-search .search-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-around;
+	height: 22px;
+	width: 16%;
+	border: 1px solid #3380CC;
+	border-radius: 3px;
+	margin-left: 5px;
+}
+
+.header-search input {
+	display: inline-block;
+	color: white;
+	font-size: 12px;
+	max-width: 300px;
+	min-width: 250px;
+	width: 80%;
+	padding-left: 5px;
+	height: 22px;
+	border: 1px solid #3380CC;
+	border-radius: 3px;
+	background: #0060BF;
+	-webkit-transition: background .2s ease-in-out;
+	   -moz-transition: background .2s ease-in-out;
+	    -ms-transition: background .2s ease-in-out;
+	     -o-transition: background .2s ease-in-out;
+	        transition: background .2s ease-in-out;
+}
+
+.header-search > *:hover {
+	border: 1px solid #4d8dcb;
+}
+
+.header-search input:focus {
+	background: white;
+	color: black;
+}
+
+header.header *:focus::-webkit-input-placeholder {
+	color: lightgrey;
+}
+
+header.header *:focus:-moz-placeholder {
+    /* FF 4-18 */
+    color: lightgrey;
+}
+header.header *:focus::-moz-placeholder {
+    /* FF 19+ */
+    color: lightgrey;
+}
+header.header *:focus:-ms-input-placeholder {
+    /* IE 10+ */
+    color: lightgrey;
+}
+
+header.header *::-webkit-input-placeholder {
+    color: white;
+}
+header.header *:-moz-placeholder {
+    /* FF 4-18 */
+    color: white;
+}
+header.header *::-moz-placeholder {
+    /* FF 19+ */
+    color: white;
+}
+header.header *:-ms-input-placeholder {
+    /* IE 10+ */
+    color: white;
+}
+
+
+header .header-settings {
+	position: absolute;
+	display: flex;
+	justify-content: space-between;
+	right: 15px;
+	width: 45px;
+}
+
+.header-settings > span {
+	font-family: "FontAwesome";
+	color:#99bfe4;
+	font-size: 20px;
+	cursor: pointer;
+	padding: 5px;
+}
+
+.header-settings > span:hover {
+	background: #1f7bd6;
+}
+
+.header-settings > .notifications:before {
+	content: "\00f0a2";
+	padding-right: 3px;
+}
+
+.header-settings > .settings:before {
+	content: "\00f013";
+}
+
+.divider {
+	display: inline-block;
+	width: 0;
+	height: 20px;
+	margin-top: 5px;
+	border-left: 1px solid rgb(0, 84, 166);
+}
+
+
+.dropdown {
+	position: absolute;
+	top: 32px;
+	left: -8px;
+	display: none;
+	background: grey;
+	padding: 10px;
+}
+
+.settings:hover > .dropdown {
+	display: inline-block;
+}
