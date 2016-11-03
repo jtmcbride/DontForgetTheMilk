@@ -15,7 +15,7 @@ export default class SidebarNav extends React.Component {
 			.map( listId => (
 				<li key={listId}><Link to={`app/list/${listId}`} >
 					{this.props.lists[listId].title}
-				</Link></li>
+				</Link><span className="dropdown">ege</span></li>
 				)
 			);
 	}
@@ -25,7 +25,8 @@ export default class SidebarNav extends React.Component {
 			<nav className="sidebar">
 				<h3 className="logo">DON'T FORGET THE MILK</h3>
 				<ul>
-					<li className="list-title">Lists</li><ListForm />
+					<li className="list-title">Lists</li>
+					<ListForm open={false} title={""} createList={this.props.createList}/>
 					<ul>
 						{this.listTitles()}
 					</ul>

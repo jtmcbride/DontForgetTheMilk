@@ -15,7 +15,11 @@ export default class ListForm extends React.Component {
 			    transform             : 'translate(-50%, -50%)'
 			  }	
 			}
-		this.state = {modalIsOpen: false}
+		this.state = {
+			modalIsOpen: this.props.open,
+			title: this.props.title || "",
+			error: false
+		}
 		this.openModal = this.openModal.bind(this);
 		this.afterOpenModal = this.afterOpenModal.bind(this);
 		this.closeModal = this.closeModal.bind(this);
@@ -30,13 +34,34 @@ export default class ListForm extends React.Component {
 	}
 
   	closeModal() {
-	    this.setState({modalIsOpen: false});
+	    this.setState({modalIsOpen: false, error: false, title: ""});
+	}
+
+	handleChange(e) {
+	  	this.setState({ title: e.target.value });
+	}
+
+	handleSubmit(e) {
+		e.preventDefault();
+		if (/\S/.test(this.state.title)) {
+			this.props.createList({title: this.state.title});
+			this.closeModal();
+		} else {
+			this.setState({error: true})
+		}
+	}
+
+	error() {
+		if (this.state.error) {
+			return <p className="form-errors">Title can't be blank.</p>
+		}
 	}
 
 	render() {
 			return (
 			<span className="modal-form-button">	
-				<button onClick={this.openModal}></button>
+				<button onClick={this.openModal}>
+				</button>
 				<Modal
 				  isOpen={this.state.modalIsOpen}
 		          onAfterOpen={this.afterOpenModal}
@@ -44,13 +69,15 @@ export default class ListForm extends React.Component {
 		          style={this.customStyles}
 		          contentLabel="New List">
 				  <h2 ref="subtitle">Create List</h2>
-		          <button onClick={this.closeModal}>close</button>
-		          <form>
+		          <button onClick={this.closeModal}>Close</button>
+		          <form className="modal-form">
 			          <label>
 				           Title:
-				           <input />
+				           <input className={this.state.error ? "invalid" : null} value={this.state.title} onChange={this.handleChange.bind(this)}/>
+				           
 		              </label>
-		           	 <button>Submit</button>
+		           	 <button onClick={this.handleSubmit.bind(this)}>Submit</button>
+		           	 {this.error()}
 		          </form>
 
 				</Modal>

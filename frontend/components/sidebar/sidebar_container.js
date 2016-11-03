@@ -1,14 +1,16 @@
 import { connect } from 'react-redux';
-// import { login } from '../../actions/session_actions';
+import { createList } from '../../actions/list_actions';
 import SidebarNav from './nav';
 
 
 const mapStateToProps = ({ list }) => ({
-  lists: list.lists
+  lists: list.lists,
+  errors: list.errors
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  });
+  createList: (list) => dispatch(createList(list))
+});
 
 export default connect(
   mapStateToProps,

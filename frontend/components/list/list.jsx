@@ -6,10 +6,9 @@ export default class List extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {modalIsOpen: false}
-		this.openModal = this.openModal.bind(this);
-		this.afterOpenModal = this.afterOpenModal.bind(this);
-		this.closeModal = this.closeModal.bind(this);
+		this.state = {
+			complete: false
+		}
 	};
 
 	componentDidMount() {
@@ -22,17 +21,28 @@ export default class List extends React.Component {
 	}
 
 
-  openModal() {
-    this.setState({modalIsOpen: true});
-  }
+	listTabs() {
+		if (this.state.complete) {
+			
+			return (<ul className="list-tabs">
+						<li className="inactive" onClick={this.handleTabClick.bind(this)}>Incomplete</li>
+						<li className="active">Complete</li>
+					</ul>)
+		} else {
+			return (<ul className="list-tabs">
+						<li className="active">Incomplete</li>
+						<li className="inactive" onClick={this.handleTabClick.bind(this)}>Complete</li>
+					</ul>)
+		}
+	}
 
-  afterOpenModal() {
-    this.refs.subtitle.style.color = '#f00';
-  }
 
-  closeModal() {
-    this.setState({modalIsOpen: false});
-  }
+	handleTabClick() {
+		this.setState({complete: !this.state.complete})
+	}
+
+
+  
 
 	// handleSubmit(e) {
 	// 	e.preventDefault();
@@ -44,10 +54,7 @@ export default class List extends React.Component {
 		return (
 			<main className="list">
 				<div className="tabs">
-					<ul className="list-tabs">
-						<li className="active">Incomplete</li>
-						<li>Complete</li>
-					</ul>
+					{this.listTabs()}
 				</div>
 				<div className="task-form">
 					<input id="task-input" placeholder="Add A Task..."/>

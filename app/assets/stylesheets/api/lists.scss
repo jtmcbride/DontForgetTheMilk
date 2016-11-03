@@ -197,6 +197,10 @@ header .header-settings {
 	border-bottom: 2px solid white;
 }
 
+.list-tabs > li.inactive {
+	color:  #0000EE;
+}
+
 .task-form {
 	border-top: 1px dotted lightgrey;
 	border-bottom: 1px dotted lightgrey;
@@ -281,5 +285,18 @@ nav.sidebar {
 	height: 12px;
 	padding: 0 0;
 	background: url(http://dahlström.net/tmp/sharp-icons/svg-icon-target.svg#plus) no-repeat;
+	// z-index: 2;
 }
+
+// .modal-form-button > button:hover > div {
+// 	background: white;
+// 	height: 10px;
+// 	width: 10px;
+// 	border-radius: 50%;
+// 	z-index: -100;
+// 	position: relative;
+// 	content: " ";
+// }
+
+
 
