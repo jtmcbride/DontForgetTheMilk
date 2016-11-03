@@ -2,11 +2,24 @@ import React from 'react';
 import { withRouter, Link } from 'react-router';
 
 
-export default class Header extends React.Component {
+class Header extends React.Component {
 
 	constructor(props) {
 		super(props)
+		this.username = this.props.user ? this.props.user.username : null;
 	}
+
+
+	handleLogout() {
+		this.props.logout();
+	}
+
+	componentDidUpdate() {
+		if (!this.props.user) {
+			this.props.router.replace("login");
+		}
+	}
+
 	
 	render(){
 
@@ -20,12 +33,19 @@ export default class Header extends React.Component {
 					<div className="header-settings">
 						<span className="notifications"></span>
 						<div className="divider"></div>
-						<span className="settings"><ul className="dropdown"><li>{this.props.user.username}</li><li onClick={this.props.logout}>Logout</li></ul></span>
+						<span className="settings">
+							<ul className="dropdown">
+								<li>{this.username}</li>
+								<li onClick={this.handleLogout.bind(this)}>Logout</li>
+							</ul>
+						</span>
 					</div>
 				</div>
 			</header>
 		)
 	}
 }
+
+export default withRouter(Header);
 
 

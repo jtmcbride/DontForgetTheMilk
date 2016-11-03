@@ -164,8 +164,10 @@ header .header-settings {
 .list {
 	background: white;
 	border-radius: 8px;
-	width: 40%;
-	margin: 30px; // temporary
+	width: calc(50% - 50px);
+	float: left;
+	margin-top: 10px;
+	margin-left: 10px;
 	height: 100vh;
 	display: inline-block;
 }
@@ -244,11 +246,11 @@ header .header-settings {
 .list-detail {
 	background: #E4EEF8;
 	border-radius: 8px;
-	width: 40%;
-	margin: 30px; // temporary
-	height: 65vh;
+	width: calc(49% - 50px);
+	margin-top: 10px;
+	height: 90vh;
 	// display: inline-block;
-	float: right;
+	float: left;
 }
 
 .tabs {
