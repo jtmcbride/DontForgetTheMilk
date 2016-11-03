@@ -10,6 +10,9 @@ import Splash from './splash'
 import App from './app'
 import SignupFormContainer from "./session/signup_container";
 import LoginFormContainer from "./session/login_container";
+import ListContainer from './list/list_container';
+
+import { fetchList } from '../actions/list_actions';
 
 const Root = ({ store }) => {
 
@@ -26,6 +29,10 @@ const Root = ({ store }) => {
 	    }
   	};
 
+  	const setCurrentList = (nextState, replace) => {
+  		store.dispatch(fetchList(nextState.params.id))
+  	};
+
 	return (
 	  <Provider store={store}>
 	    <Router history={hashHistory} >
@@ -33,7 +40,8 @@ const Root = ({ store }) => {
 	    	<Route path="signup" onEnter={_redirectIfLoggedIn}  component={SignupFormContainer} />
 	    	<Route path="login" onEnter={_redirectIfLoggedIn} component={LoginFormContainer} />
 	    	<Route path="app" onEnter={_ensureLoggedIn} component={App}>
-
+	    		<IndexRoute component={ListContainer} />
+	    		<Route path="/app/list/:id" onEnter={setCurrentList} />
 	    	</Route>
 	    </Router>
 	  </Provider>

@@ -12,6 +12,10 @@ export default class List extends React.Component {
 		this.closeModal = this.closeModal.bind(this);
 	};
 
+	componentDidMount() {
+		this.props.fetchLists();
+	}
+
 
 	tasks() {
 		return ["he", "ha", "Whu"].map( t => <li>{t}</li>)

@@ -1,4 +1,5 @@
 import { RECEIVE_LIST, RECEIVE_LISTS, RECEIVE_LIST_ERRORS, REMOVE_LIST } from '../actions/list_actions';
+import { LOGOUT } from '../actions/session_actions';
 import merge from 'lodash/merge';
 
 
@@ -23,6 +24,8 @@ const ListReducer  = (state = { lists: {}, list: {}, tasks: {}, errors: [] }, ac
     case RECEIVE_LIST_ERRORS:
       newState = merge({}, state, { errors: action.errors });
       return newState;
+    case LOGOUT:
+      return { lists: {}, list: {}, tasks: {}, errors: [] };
     default:
       return state;
   }

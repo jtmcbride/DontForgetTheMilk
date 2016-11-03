@@ -164,7 +164,7 @@ header .header-settings {
 .list {
 	background: white;
 	border-radius: 8px;
-	width: calc(50% - 50px);
+	width: calc(50% - 80px);
 	float: left;
 	margin-top: 10px;
 	margin-left: 10px;
@@ -246,10 +246,9 @@ header .header-settings {
 .list-detail {
 	background: #E4EEF8;
 	border-radius: 8px;
-	width: calc(49% - 50px);
+	width: calc(49% - 80px);
 	margin-top: 10px;
 	height: 90vh;
-	// display: inline-block;
 	float: left;
 }
 
@@ -261,6 +260,26 @@ header .header-settings {
 
 nav.sidebar {
 	float: left;
-	width: 100px;
+	width: 160px;
+}
+
+.list-title {
+	display: inline-block;
+}
+
+.modal-form-button {
+	float: right;
+	margin-right: 5px;
+	background: none;
+}
+
+.modal-form-button > button {
+	background: none;
+	// border: 1px solid #0060BF;
+	border-radius: 3px;
+	width: 12px;
+	height: 12px;
+	padding: 0 0;
+	background: url(http://dahlström.net/tmp/sharp-icons/svg-icon-target.svg#plus) no-repeat;
 }
 
