@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 
 import configureStore from './store/store';
 
-import Root from './components/root'
+import Root from './components/root';
+import Modal from 'react-modal';
 
 
 import {login, signup, logout } from './util/session_util';
@@ -12,6 +13,7 @@ window.sig = signup;
 window.out = logout;
 
 document.addEventListener("DOMContentLoaded", () => {
+	Modal.setAppElement(document.body);
 	let store;
 	if (window.currentUser) {
 		store = configureStore({session: {currentUser: window.currentUser, errors: []}});

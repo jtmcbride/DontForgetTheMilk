@@ -164,9 +164,10 @@ header .header-settings {
 .list {
 	background: white;
 	border-radius: 8px;
-	width: 50%;
+	width: 40%;
 	margin: 30px; // temporary
 	height: 100vh;
+	display: inline-block;
 }
 
 .list-tabs {
@@ -219,4 +220,13 @@ header .header-settings {
 // .task-form:focus + .add-task {
 // 	display: block;
 // }
+
+.list-detail {
+	background: #E4EEF8;
+	border-radius: 8px;
+	width: 40%;
+	margin: 30px; // temporary
+	height: 100vh;
+	display: inline-block;
+}
 
