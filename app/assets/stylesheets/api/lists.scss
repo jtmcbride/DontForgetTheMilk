@@ -171,15 +171,35 @@ header .header-settings {
 }
 
 .list-tabs {
+	float: right;
 	position: relative;
-	left: 75%;
 	display: flex;
+	justify-content: space-between;
+	top: 25px;
+	width: 160px;
+	padding-right: 10px;
+}
+
+.list-tabs > li {
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+	padding: 3px;
+	cursor: pointer;
+	font-size: 15px;
+}
+
+.list-tabs > li.active {
+	border-top: 1px dotted lightgrey;
+	border-left: 1px dotted lightgrey;
+	border-right: 1px dotted lightgrey;
+	border-bottom: 2px solid white;
 }
 
 .task-form {
 	border-top: 1px dotted lightgrey;
 	border-bottom: 1px dotted lightgrey;
 	transition: height .2s ease-in;
+	display: block;
 }
 
 .task-form > * {
@@ -192,7 +212,7 @@ header .header-settings {
 .task-form > input {
 	border: 1px solid lightgrey;
 	margin: 15px;
-	width: 80%;
+	width: 70%;
 	display: inline-block;
 }
 
@@ -226,7 +246,19 @@ header .header-settings {
 	border-radius: 8px;
 	width: 40%;
 	margin: 30px; // temporary
-	height: 100vh;
-	display: inline-block;
+	height: 65vh;
+	// display: inline-block;
+	float: right;
+}
+
+.tabs {
+	height: 50px;
+}
+
+
+
+nav.sidebar {
+	float: left;
+	width: 100px;
 }
 
