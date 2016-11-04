@@ -309,7 +309,7 @@ nav.sidebar {
 	position: absolute;
 	top: 14px;
 	right: 0;
-	
+	border-radius: 2px;
 	background: white;
 	z-index: 100;
 }
@@ -317,6 +317,7 @@ nav.sidebar {
 .list-dropdown > li {
 	padding-bottom: 2px; 
 	padding: 5px;
+	cursor: pointer;
 }
 
 .list-dropdown > li:hover {
@@ -350,5 +351,4 @@ nav.sidebar {
 
 .list-options-dropdown:hover:after {
 	background: #D9E7F5;
-
 }

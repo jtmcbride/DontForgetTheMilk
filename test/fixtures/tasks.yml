@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  list_id: 1
+  name: MyString
+  completed: false
+  start_date: 2016-11-04
+  due_date: 2016-11-04
+  priority: 1
+  estimate: 1
+
+two:
+  user_id: 1
+  list_id: 1
+  name: MyString
+  completed: false
+  start_date: 2016-11-04
+  due_date: 2016-11-04
+  priority: 1
+  estimate: 1

@@ -17,9 +17,8 @@ export default class ListForm extends React.Component {
 			}
 		this.state = {
 			modalIsOpen: false,
-			title: "",
-			error: false,
-			listId: this.props.updateId
+			title: this.props.title,
+			error: false
 		}
 		this.openModal = this.openModal.bind(this);
 		this.afterOpenModal = this.afterOpenModal.bind(this);
@@ -27,7 +26,7 @@ export default class ListForm extends React.Component {
 	}
 
 	openModal() {
-	    this.setState({modalIsOpen: true, formType: "create"});
+	    this.setState({modalIsOpen: true});
 	}
 
   	afterOpenModal() {
@@ -35,7 +34,7 @@ export default class ListForm extends React.Component {
 	}
 
   	closeModal() {
-	    this.setState({modalIsOpen: false, error: false, title: "", formType: "create"});
+	    this.setState({modalIsOpen: false, error: false, title: ""});
 	}
 
 	handleChange(e) {
@@ -45,11 +44,7 @@ export default class ListForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		if (/\S/.test(this.state.title)) {
-			if (this.state.formType === "create"){
-				this.props.createList({title: this.state.title});
-			} else {
-				this.props.updateList({title: this.state.title, id: this.state.listId})
-			}
+			this.props.createList({title: this.state.title});
 			this.closeModal();
 		} else {
 			this.setState({error: true})
@@ -57,19 +52,8 @@ export default class ListForm extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		let changedProps = (nextProps.title !== this.state.title && nextProps.open !== this.state.modalIsOpen && nextProps.formType !== this.state.formType);
-		if (changedProps) {
-			console.log("hello")
-			this.setState({
-				modalIsOpen: true,
-				title: nextProps.title,
-				formType: nextProps.formType,
-				listId: nextProps.listId
-			});
-		}
+
 	}
-
-
 
 	error() {
 		if (this.state.error) {
@@ -77,23 +61,7 @@ export default class ListForm extends React.Component {
 		}
 	}
 
-
-	// form() {
-
-	// 	<form className="modal-form">
- //          <label>
-	//            Title: <br />
-	//            <input className={this.state.error ? "invalid" : null} value={this.state.title} onChange={this.handleChange.bind(this)}/>
-	           
- //          </label>
- //       	 <button onClick={this.handleSubmit.bind(this)}>Submit</button>
- //       	 {this.error()}
-	// 	</form>
-
-	// }
-
 	render() {
-			console.log(this.state)
 			return (
 			<span className="modal-form-button">	
 				<button onClick={this.openModal}>
@@ -104,11 +72,11 @@ export default class ListForm extends React.Component {
 		          onRequestClose={this.closeModal}
 		          style={this.customStyles}
 		          contentLabel="New List">
-				  <h2 ref="subtitle">{this.state.formType === "create" ? "Create List" : "Update List"}</h2>
+				  <h2 ref="subtitle">Create List</h2>
 		          <button onClick={this.closeModal}>Close</button>
 		          <form className="modal-form">
 			          <label>
-				           Title: <br />
+				           Title:
 				           <input className={this.state.error ? "invalid" : null} value={this.state.title} onChange={this.handleChange.bind(this)}/>
 				           
 		              </label>

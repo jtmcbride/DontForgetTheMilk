@@ -9,28 +9,43 @@ export default class SidebarNav extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			modalOpen: false,
+			title: "",
+			formType: "create"
+		};
+	}
 
-		}
+	componentWillReceiveProps () {
+		console.log("helo from nav")
+		this.setState({
+			modalOpen: false
+		});
 	}
 
 
 	handleDropdownClick(e) {
 		console.log(e.target.children);
-		let that = e.target.children[0]
+		let that = e.target.children[0];
 		that.className = "list-dropdown";
 		document.addEventListener("click", function hideDropdown() {
 			that.className = "list-dropdown hidden";
-			document.removeEventListener("click", hideDropdown)
+			document.removeEventListener("click", hideDropdown);
 		});
 	}
 
 	handleUpdateListClick(list) {
-		return () => this.props.destroyList(id)
+		return (e) => {
+			e.stopPropagation();
+			this.setState({modalOpen: true, title: list.title, formType: "update", updateId: list.id});
+		}
 	}
 
 
 	handleRemoveListClick(id) {
-		return () => this.props.destroyList(id)
+		return (e) => {
+			e.stopPropagation();
+			this.props.destroyList(id)
+		}
 	}
 
 	listTitles() {
@@ -42,7 +57,7 @@ export default class SidebarNav extends React.Component {
 					</Link>
 					<span onClick={this.handleDropdownClick.bind(this)} className="list-options-dropdown">
 						<ul className="list-dropdown hidden">
-							<li onClick={this.handleUpdateListClick(listId)}>Update List</li>
+							<li onClick={this.handleUpdateListClick(this.props.lists[listId]).bind(this)}>Update List</li>
 							<li onClick={this.handleRemoveListClick(listId)}>Remove List</li>
 						</ul>
 					</span>
@@ -57,7 +72,7 @@ export default class SidebarNav extends React.Component {
 				<h3 className="logo">DON'T FORGET THE MILK</h3>
 				<ul>
 					<li className="list-title">Lists</li>
-					<ListForm open={false} title={""} createList={this.props.createList}/>
+					<ListForm open={this.state.modalOpen} updateId={this.state.updateId} title={this.state.title} formType={this.state.formType} updateList={this.props.updateList} createList={this.props.createList} />
 					<ul>
 						{this.listTitles()}
 					</ul>

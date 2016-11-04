@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   has_many(:lists)
+  has_many(:tasks)
 
   def self.find_by_creds(username, password)
     user = User.find_by(username: username)

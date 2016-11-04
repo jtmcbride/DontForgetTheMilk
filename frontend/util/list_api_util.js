@@ -9,6 +9,7 @@ export const createList = (list, success, error) => {
 }
 
 export const updateList = (list, success, error) => {
+  console.log(list);
   $.ajax({
     url: `api/lists/${list.id}`, 
     type: "PATCH",
