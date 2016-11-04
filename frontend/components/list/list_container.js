@@ -3,8 +3,10 @@ import { fetchLists } from '../../actions/list_actions';
 import List from './list';
 
 
-const mapStateToProps = ({ list }) => ({
+const mapStateToProps = ({ list, task }) => ({
   list: list.list,
+  tasks: task.tasks,
+  currentTask: task.task,
   errors: list.errors
 });
 

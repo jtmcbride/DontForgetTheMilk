@@ -6,8 +6,8 @@ class Api::ListsController < ApplicationController
   end
 
   def show
-    @list = current_user.lists.find(params[:id])
-    render json: @list
+    @list = current_user.lists.includes(:tasks).find(params[:id])
+    # render json: @list
   end
 
   def create

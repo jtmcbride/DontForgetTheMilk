@@ -3,13 +3,13 @@ import { LOGOUT } from '../actions/session_actions';
 import merge from 'lodash/merge';
 
 
-const ListReducer  = (state = { lists: {}, list: {}, tasks: {}, errors: [] }, action) => {
+const ListReducer  = (state = { lists: {}, list: {}, errors: [] }, action) => {
   Object.freeze(state);
   console.log(action.type);
   let newState;
   switch(action.type) {
     case RECEIVE_LIST:
-      newState = merge({}, state, { list: action.list, tasks: action.tasks, errors: [] });
+      newState = merge({}, state, { list: action.list.list, errors: [] });
       newState.lists[action.list.id] = action.list;
       return newState;
     case RECEIVE_LISTS:
@@ -24,7 +24,7 @@ const ListReducer  = (state = { lists: {}, list: {}, tasks: {}, errors: [] }, ac
       newState = merge({}, state, { errors: action.errors });
       return newState;
     case LOGOUT:
-      return { lists: {}, list: {}, tasks: {}, errors: [] };
+      return { lists: {}, list: {}, errors: [] };
     default:
       return state;
   }

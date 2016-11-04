@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import ListForm from '../list/list_form';
-import ToDoList from './to'
 
 
 export default class SidebarNav extends React.Component {

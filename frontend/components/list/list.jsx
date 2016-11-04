@@ -17,7 +17,7 @@ export default class List extends React.Component {
 
 
 	tasks() {
-		return ["he", "ha", "Whu"].map( t => <li>{t}</li>)
+		return Object.keys(this.props.tasks).map( taskId => <li key={taskId}>{this.props.tasks[taskId].name}</li>)
 	}
 
 
