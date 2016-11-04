@@ -48,9 +48,10 @@ export default class SidebarNav extends React.Component {
 	}
 
 	listTitles() {
+		console.log(this.props.currentListId)
 		return Object.keys(this.props.lists)
 			.map( listId => (
-				<li className="list-name" key={listId}>
+				<li className={this.props.currentListId == listId ? "list-name active" : "list-name"} key={listId}>
 					<Link to={`app/list/${listId}`} >
 						{this.props.lists[listId].title}
 					</Link>
@@ -70,8 +71,19 @@ export default class SidebarNav extends React.Component {
 			<nav className="sidebar">
 				<h3 className="logo">DON'T FORGET THE MILK</h3>
 				<ul>
+					<li className="list-title">All Tasks</li>
+					<ul>
+						{this.listTitles()}
+					</ul>
 					<li className="list-title">Lists</li>
-					<ListForm open={this.state.modalOpen} updateId={this.state.updateId} title={this.state.title} formType={this.state.formType} updateList={this.props.updateList} createList={this.props.createList} />
+					<ListForm
+						open={this.state.modalOpen} 
+						updateId={this.state.updateId} 
+						title={this.state.title} 
+						formType={this.state.formType} 
+						updateList={this.props.updateList} 
+						createList={this.props.createList} 
+					/>
 					<ul>
 						{this.listTitles()}
 					</ul>

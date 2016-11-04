@@ -198,7 +198,7 @@ header .header-settings {
 }
 
 .list-tabs > li.inactive {
-	color:  #0000EE;
+	color:  #0060BF;
 }
 
 .task-form {
@@ -332,6 +332,41 @@ nav.sidebar {
 	position: relative;
 }
 
+.list-name a {
+	color: black;
+}
+
+.sidebar > ul {
+	margin: 5px;
+	font-size: 14px;
+	transition: height 2s linear;
+}
+
+.sidebar > ul > ul {
+	margin-left: 3px;
+	border-bottom: 2px solid;
+}
+
+.sidebar li {
+	padding: 3px;
+}
+
+.sidebar li.active a {
+	color: #0060BF;
+	font-size: 15px;
+	
+}
+
+.sidebar li.active {
+	background: rgb(180, 205, 235);
+}
+
+.sidebar > .logo {
+	text-align: center;
+	margin: 5px;
+	margin-top: 8px;
+}
+
 .list-name:hover {
 	background: rgb(180, 205, 235);
 }
@@ -346,6 +381,27 @@ nav.sidebar {
 	position: relative;
 	top: -3px;
 	right: 3px;
+}
+
+.ReactModalPortal input {
+	border: 1px solid lightgrey;
+	margin: 15px;
+	width: 70%;
+	display: inline-block;
+	font-size: 26px;
+}
+
+.ReactModalPortal {
+	font-size: 26px;
+}
+
+.ReactModalPortal button {
+	display: inline-block;
+	background: #2E8CEB;
+	color: white;
+	font-size: 26px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 

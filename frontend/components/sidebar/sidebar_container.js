@@ -5,6 +5,7 @@ import SidebarNav from './nav';
 
 const mapStateToProps = ({ list }) => ({
   lists: list.lists,
+  currentListId: list.list.id,
   errors: list.errors
 });
 

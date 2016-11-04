@@ -15,13 +15,11 @@ export default class ListDetail extends React.Component {
 					<div className="details">
 						<section className="list-summary">
 							<div>
-								<span>7</span>
-								<span>tasks</span>
+								<span></span>
+								<span></span>
 							</div>
 							<div className="divider"></div>
 							<div>
-								0h40m <br />
-								estimated
 							</div>
 						</section>
 					</div>
