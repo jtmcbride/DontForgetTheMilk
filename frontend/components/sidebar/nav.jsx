@@ -16,7 +16,6 @@ export default class SidebarNav extends React.Component {
 	}
 
 	componentWillReceiveProps () {
-		console.log("helo from nav")
 		this.setState({
 			modalOpen: false
 		});

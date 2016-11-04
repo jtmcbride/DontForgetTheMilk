@@ -19,7 +19,7 @@ export default class ListForm extends React.Component {
 			modalIsOpen: false,
 			title: "",
 			error: false,
-			listId: this.props.updateId
+			updateId: this.props.updateId
 		}
 		this.openModal = this.openModal.bind(this);
 		this.afterOpenModal = this.afterOpenModal.bind(this);
@@ -48,7 +48,7 @@ export default class ListForm extends React.Component {
 			if (this.state.formType === "create"){
 				this.props.createList({title: this.state.title});
 			} else {
-				this.props.updateList({title: this.state.title, id: this.state.listId})
+				this.props.updateList({title: this.state.title, id: this.state.updateId})
 			}
 			this.closeModal();
 		} else {
@@ -57,14 +57,13 @@ export default class ListForm extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		let changedProps = (nextProps.title !== this.state.title && nextProps.open !== this.state.modalIsOpen && nextProps.formType !== this.state.formType);
+		let changedProps = (nextProps.title !== this.state.title && nextProps.open !== this.state.modalIsOpen && nextProps.updateId !== this.state.updateId && nextProps.formType !== this.state.formType);
 		if (changedProps) {
-			console.log("hello")
 			this.setState({
 				modalIsOpen: true,
 				title: nextProps.title,
 				formType: nextProps.formType,
-				listId: nextProps.listId
+				updateId: nextProps.updateId
 			});
 		}
 	}
@@ -93,7 +92,6 @@ export default class ListForm extends React.Component {
 	// }
 
 	render() {
-			console.log(this.state)
 			return (
 			<span className="modal-form-button">	
 				<button onClick={this.openModal}>
