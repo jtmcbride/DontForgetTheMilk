@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import ListForm from '../list/list_form';
+import ToDoList from './to'
 
 
 export default class SidebarNav extends React.Component {
@@ -51,17 +53,18 @@ export default class SidebarNav extends React.Component {
 		console.log(this.props.currentListId)
 		return Object.keys(this.props.lists)
 			.map( listId => (
-				<li className={this.props.currentListId == listId ? "list-name active" : "list-name"} key={listId}>
-					<Link to={`app/list/${listId}`} >
-						{this.props.lists[listId].title}
-					</Link>
-					<span onClick={this.handleDropdownClick.bind(this)} className="list-options-dropdown">
-						<ul className="list-dropdown hidden">
-							<li onClick={this.handleUpdateListClick(this.props.lists[listId]).bind(this)}>Update List</li>
-							<li onClick={this.handleRemoveListClick(listId)}>Remove List</li>
-						</ul>
-					</span>
-				</li>
+				
+					<li className={this.props.currentListId == listId ? "list-name active" : "list-name"} key={listId}>
+						<Link to={`app/list/${listId}`} >
+							{this.props.lists[listId].title}
+						</Link>
+						<span onClick={this.handleDropdownClick.bind(this)} className="list-options-dropdown">
+							<ul className="list-dropdown hidden">
+								<li onClick={this.handleUpdateListClick(this.props.lists[listId]).bind(this)}>Update List</li>
+								<li onClick={this.handleRemoveListClick(listId)}>Remove List</li>
+							</ul>
+						</span>
+					</li>
 				)
 			);
 	}
@@ -71,10 +74,10 @@ export default class SidebarNav extends React.Component {
 			<nav className="sidebar">
 				<h3 className="logo">DON'T FORGET THE MILK</h3>
 				<ul>
-					<li className="list-title">All Tasks</li>
-					<ul>
-						{this.listTitles()}
-					</ul>
+					<li className="list-title">All Tasks</li>		
+						<ul>
+						
+						</ul>
 					<li className="list-title">Lists</li>
 					<ListForm
 						open={this.state.modalOpen} 
@@ -85,7 +88,12 @@ export default class SidebarNav extends React.Component {
 						createList={this.props.createList} 
 					/>
 					<ul>
-						{this.listTitles()}
+						<ReactCSSTransitionGroup
+				          transitionName="title-transition"
+				          transitionEnterTimeout={500}
+				          transitionLeaveTimeout={300}>
+							{this.listTitles()}
+						</ReactCSSTransitionGroup>
 					</ul>
 				</ul>
 			</nav>

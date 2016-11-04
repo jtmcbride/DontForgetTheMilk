@@ -354,11 +354,10 @@ nav.sidebar {
 .sidebar li.active a {
 	color: #0060BF;
 	font-size: 15px;
-	
 }
 
 .sidebar li.active {
-	background: rgb(180, 205, 235);
+	// background: rgb(180, 205, 235);
 }
 
 .sidebar > .logo {
@@ -407,4 +406,50 @@ nav.sidebar {
 
 .list-options-dropdown:hover:after {
 	background: #D9E7F5;
+}
+
+
+.expand-enter {
+	transform: scale(0.5, 0);
+	transform-origin: top left;
+	overflow: hidden;
+	height: 0;
+}
+
+.expand-leave, .expand-enter.expand-enter-active {
+    opacity: 1;
+    transform: scale(1, 1);
+    transform-origin: top right;
+    overflow: hidden;
+    height: 20px;
+}
+
+.expand-enter, .expand-leave {
+    transition: all 350ms ease-out;
+    -o-transition: all 350ms ease-out;
+    -moz-transition: all 350ms ease-out;
+    -webkit-transition: all 350ms ease-out;
+}
+
+.expand-enter.expand-enter-active {
+  height: 100%;
+  transition: height 500ms ease-in;
+}
+
+.title-transition-enter {
+  opacity: 0.01;
+}
+
+.title-transition-enter.title-transition-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.title-transition-leave {
+  opacity: 1;
+}
+
+.title-transition-leave.title-transition-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }
