@@ -299,4 +299,56 @@ nav.sidebar {
 // }
 
 
+.list-options-dropdown {
+	float: right;
+	display: inline-block;
+	height: 12px;
+}
 
+.list-dropdown {
+	position: absolute;
+	top: 14px;
+	right: 0;
+	
+	background: white;
+	z-index: 100;
+}
+
+.list-dropdown > li {
+	padding-bottom: 2px; 
+	padding: 5px;
+}
+
+.list-dropdown > li:hover {
+	background: lightgrey;
+}
+
+.hidden {
+	display: none;
+}
+
+.list-name {
+	position: relative;
+}
+
+.list-name:hover {
+	background: rgb(180, 205, 235);
+}
+
+.list-name:hover > .list-options-dropdown:after {
+	content: " ▾";
+	border: 1px solid black;
+	font-size: 10px;
+	padding: 0 3px 0 3px;
+	border-radius: 25%;
+	margin-bottom: 5px;
+	position: relative;
+	top: -3px;
+	right: 3px;
+}
+
+
+.list-options-dropdown:hover:after {
+	background: #D9E7F5;
+
+}

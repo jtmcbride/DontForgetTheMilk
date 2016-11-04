@@ -16,7 +16,6 @@ const ListReducer  = (state = { lists: {}, list: {}, tasks: {}, errors: [] }, ac
       newState = merge({}, state, { lists: action.lists, errors: [] });
       return newState;
     case REMOVE_LIST:
-      debugger;
       newState = merge({}, state)
       // newState.lists[action.id] = undefined;
       delete newState.lists[action.id]

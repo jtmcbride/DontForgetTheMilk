@@ -8,14 +8,45 @@ export default class SidebarNav extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.state = {
+
+		}
+	}
+
+
+	handleDropdownClick(e) {
+		console.log(e.target.children);
+		let that = e.target.children[0]
+		that.className = "list-dropdown";
+		document.addEventListener("click", function hideDropdown() {
+			that.className = "list-dropdown hidden";
+			document.removeEventListener("click", hideDropdown)
+		});
+	}
+
+	handleUpdateListClick(list) {
+		return () => this.props.destroyList(id)
+	}
+
+
+	handleRemoveListClick(id) {
+		return () => this.props.destroyList(id)
 	}
 
 	listTitles() {
 		return Object.keys(this.props.lists)
 			.map( listId => (
-				<li key={listId}><Link to={`app/list/${listId}`} >
-					{this.props.lists[listId].title}
-				</Link><span className="dropdown">ege</span></li>
+				<li className="list-name" key={listId}>
+					<Link to={`app/list/${listId}`} >
+						{this.props.lists[listId].title}
+					</Link>
+					<span onClick={this.handleDropdownClick.bind(this)} className="list-options-dropdown">
+						<ul className="list-dropdown hidden">
+							<li onClick={this.handleUpdateListClick(listId)}>Update List</li>
+							<li onClick={this.handleRemoveListClick(listId)}>Remove List</li>
+						</ul>
+					</span>
+				</li>
 				)
 			);
 	}
