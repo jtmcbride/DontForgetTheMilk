@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from 'react-modal';
+import TaskForm from '../task/task_form'; 
 
 export default class List extends React.Component {
 
@@ -56,12 +56,7 @@ export default class List extends React.Component {
 				<div className="tabs">
 					{this.listTabs()}
 				</div>
-				<div className="task-form">
-					<input id="task-input" placeholder="Add A Task..."/>
-					<button className="add-task">
-						Add Task
-					</button>
-				</div>
+				<TaskForm submitTask={this.props.submitTask} />
 				<ul className="tasks">
 					<span className="priority"/>
 					{this.tasks()}

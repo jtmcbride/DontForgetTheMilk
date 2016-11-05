@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchLists } from '../../actions/list_actions';
+import { createTask } from '../../actions/task_actions';
 import List from './list';
 
 
@@ -11,7 +12,8 @@ const mapStateToProps = ({ list, task }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchLists: () => dispatch(fetchLists())
+  fetchLists: () => dispatch(fetchLists()),
+  submitTask: task => dispatch(createTask(task))
 });
 
 export default connect(
