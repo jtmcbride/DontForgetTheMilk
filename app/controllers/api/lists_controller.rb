@@ -7,7 +7,8 @@ class Api::ListsController < ApplicationController
 
   def show
     @list = current_user.lists.includes(:tasks).find(params[:id])
-    # render json: @list
+    @completed_tasks = @list.tasks.where(completed: true)
+    @incomplete_tasks = @list.tasks.where(completed: false)
   end
 
   def create

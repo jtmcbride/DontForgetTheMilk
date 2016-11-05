@@ -15,7 +15,7 @@ export default class TaskForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.submitTask(this.state);
+		this.props.submitTask(this.state, this.props.listId);
 		this.setState({name: ""})
 	}
 

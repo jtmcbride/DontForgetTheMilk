@@ -10,6 +10,7 @@ const TaskReducer  = (state = { tasks: {}, task: {}, errors: [] }, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_LIST:
+      debugger
       newState = merge({}, state);
       if (action.list.tasks) {
         newState.tasks = action.list.tasks;

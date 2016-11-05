@@ -13,7 +13,7 @@ const mapStateToProps = ({ list, task }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchLists: () => dispatch(fetchLists()),
-  submitTask: task => dispatch(createTask(task))
+  submitTask: (task, listId) => dispatch(createTask(task, listId))
 });
 
 export default connect(

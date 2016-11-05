@@ -17,7 +17,11 @@ export default class List extends React.Component {
 
 
 	tasks() {
-		return Object.keys(this.props.tasks).map( taskId => <li key={taskId}>{this.props.tasks[taskId].name}</li>)
+		if (!this.state.complete) {
+			return Object.keys(this.props.tasks).map( taskId => <li key={taskId}>{this.props.tasks[taskId].name}</li>)
+		} else {
+
+		}
 	}
 
 
@@ -54,7 +58,7 @@ export default class List extends React.Component {
 				<div className="tabs">
 					{this.listTabs()}
 				</div>
-				<TaskForm submitTask={this.props.submitTask} />
+				<TaskForm submitTask={this.props.submitTask} listId={this.props.list.id} />
 				<ul className="tasks">
 					<span className="priority"/>
 					{this.tasks()}
