@@ -6,9 +6,7 @@ export default ({ getState, dispatch }) => next => action => {
   const successCallback = task => dispatch(receiveTask(task));
   const tasksSuccessCallback = tasks => dispatch(receiveTasks(tasks));
   const errorCallback = error => dispatch(receiveTaskErrors(error.responseJSON));
-   debugger;
   switch(action.type) {
-
     case FETCH_TASK:
       fetchTask(action.id, successCallback, errorCallback);
       return next(action);

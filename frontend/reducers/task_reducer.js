@@ -18,7 +18,6 @@ const TaskReducer  = (state = { tasks: {}, task: {}, errors: [] }, action) => {
       }
       return newState;
     case RECEIVE_TASK:
-      debugger
       newState = merge({}, state, { task: action.task, errors: [] });
       newState.tasks[action.task.id] = action.task;
       return newState;

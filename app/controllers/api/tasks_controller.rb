@@ -12,7 +12,7 @@ class Api::TasksController < ApplicationController
     if @task.save
       render json: @task
     else
-      render json: @task.errors
+      render json: @task.errors, status: 422
     end
   end
 

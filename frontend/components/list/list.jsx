@@ -26,7 +26,7 @@ export default class List extends React.Component {
 			
 			return (<ul className="list-tabs">
 						<li className="inactive" onClick={this.handleTabClick.bind(this)}>Incomplete</li>
-						<li className="active">Complete</li>
+						<li className="active">Completed</li>
 					</ul>)
 		} else {
 			return (<ul className="list-tabs">
@@ -40,13 +40,11 @@ export default class List extends React.Component {
 	handleTabClick() {
 		this.setState({complete: !this.state.complete})
 	}
-
-
   
 
 	// handleSubmit(e) {
 	// 	e.preventDefault();
-	// 	e.stopImmediatePropagation();
+	// 	e.stopPropagation();
 	// 	document.getElementById("task-input").focus();
 	// }
 
