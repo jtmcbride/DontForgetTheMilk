@@ -3,10 +3,11 @@ import { createList, destroyList, updateList } from '../../actions/list_actions'
 import SidebarNav from './nav';
 
 
-const mapStateToProps = ({ list }) => ({
+const mapStateToProps = ({ list, router }) => ({
   lists: list.lists,
   currentListId: list.list.id,
-  errors: list.errors
+  errors: list.errors,
+  router
 });
 
 const mapDispatchToProps = (dispatch) => ({

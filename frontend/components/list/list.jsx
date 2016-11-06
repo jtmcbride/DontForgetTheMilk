@@ -35,7 +35,7 @@ export default class List extends React.Component {
 		} else {
 			return (<ul className="list-tabs">
 						<li className="active">Incomplete</li>
-						<li className="inactive" onClick={this.handleTabClick.bind(this)}>Complete</li>
+						<li className="inactive" onClick={this.handleTabClick.bind(this)}>Completed</li>
 					</ul>)
 		}
 	}

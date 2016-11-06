@@ -5,12 +5,12 @@ import merge from 'lodash/merge';
 
 const ListReducer  = (state = { lists: {}, list: {}, errors: [] }, action) => {
   Object.freeze(state);
-  console.log(action.type);
   let newState;
   switch(action.type) {
     case RECEIVE_LIST:
+      debugger
       newState = merge({}, state, { list: action.list.list, errors: [] });
-      newState.lists[action.list.id] = action.list;
+      newState.lists[action.list.list.id] = action.list.list;
       return newState;
     case RECEIVE_LISTS:
       newState = merge({}, state, { lists: action.lists, errors: [] });

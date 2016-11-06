@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import ListForm from '../list/list_form';
 
 
-export default class SidebarNav extends React.Component {
+class SidebarNav extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -16,10 +16,20 @@ export default class SidebarNav extends React.Component {
 		};
 	}
 
-	componentWillReceiveProps () {
+	componentWillReceiveProps(nextProps) {
+		// if (this.props.router.params.id !== nextProps.currentListId) {
+		// 	this.props.router.push(`app/list/${nextProps.currentListId}`)
+		// }
 		this.setState({
 			modalOpen: false
 		});
+	}
+
+	componentDidUpdate() {
+		console.log(this.props.router.params.id)
+		// if (this.props.router.params.id !== this.props.currentListId) {
+		// 	this.props.router.push(`app/list/${this.props.currentListId}`)
+		// }
 	}
 
 
@@ -75,7 +85,7 @@ export default class SidebarNav extends React.Component {
 				<ul>
 					<li className="list-title">All Tasks</li>		
 						<ul>
-						
+							<li>Today</li>
 						</ul>
 					<li className="list-title">
 						Lists
@@ -101,3 +111,5 @@ export default class SidebarNav extends React.Component {
 		)
 	}
 }
+
+export default withRouter(SidebarNav);

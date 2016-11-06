@@ -15,16 +15,18 @@ class Api::ListsController < ApplicationController
     @list = current_user.lists.new(list_params)
     @list.user_id = current_user.id
     if @list.save
-      render json: @list
+      render :create
     else
       render json: @list.errors.full_messages, status: 422
     end
   end
 
   def update
-    @list = List.find(params[:id])
+    @list = current_user.lists.includes(:tasks).find(params[:id])
     @list.update(list_params)
-    render json: @list
+    @completed_tasks = @list.tasks.where(completed: true)
+    @incomplete_tasks = @list.tasks.where(completed: false)
+    render :show
   end
 
   def destroy
