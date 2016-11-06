@@ -55,7 +55,7 @@ export default class SidebarNav extends React.Component {
 				
 					<li className={this.props.currentListId == listId ? "list-name active" : "list-name"} key={listId}>
 						<Link to={`app/list/${listId}`} >
-							{this.props.lists[listId].title}
+							<span>{this.props.lists[listId].title}</span>
 						</Link>
 						<span onClick={this.handleDropdownClick.bind(this)} className="list-options-dropdown">
 							<ul className="list-dropdown hidden">
@@ -77,15 +77,17 @@ export default class SidebarNav extends React.Component {
 						<ul>
 						
 						</ul>
-					<li className="list-title">Lists</li>
-					<ListForm
-						open={this.state.modalOpen} 
-						updateId={this.state.updateId} 
-						title={this.state.title} 
-						formType={this.state.formType} 
-						updateList={this.props.updateList} 
-						createList={this.props.createList} 
-					/>
+					<li className="list-title">
+						Lists
+						<ListForm
+							open={this.state.modalOpen} 
+							updateId={this.state.updateId} 
+							title={this.state.title} 
+							formType={this.state.formType} 
+							updateList={this.props.updateList} 
+							createList={this.props.createList} 
+						/>
+					</li>
 					<ul>
 						<ReactCSSTransitionGroup
 				          transitionName="title-transition"

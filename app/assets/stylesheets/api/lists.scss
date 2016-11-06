@@ -171,7 +171,7 @@ header .header-settings {
 
 .app {
 	background: #D9E7F5;
-	height: 100vh;
+	height: 100%;
 	z-index: -1;
 }
 
@@ -183,7 +183,7 @@ header .header-settings {
 	float: left;
 	margin-top: 10px;
 	margin-left: 10px;
-	height: 100vh;
+	height: 94vh;
 	display: inline-block;
 }
 
@@ -251,6 +251,8 @@ header .header-settings {
 
 .tasks {
 	border-top: 1px dotted lightgrey;
+	overflow: scroll;
+	height: 80%;
 }
 
 .priority {
@@ -284,6 +286,8 @@ header .header-settings {
 nav.sidebar {
 	float: left;
 	width: 160px;
+	padding-bottom: 10px;
+	height: 95vh;
 }
 
 .list-title {
@@ -353,22 +357,34 @@ nav.sidebar {
 
 .list-name a {
 	color: black;
+	width: 84%;
+	display: inline-block;
 }
 
 .sidebar > ul {
 	margin: 5px;
 	font-size: 14px;
 	transition: height 2s linear;
-	overflow: hidden;
+	overflow-y: scroll;
+	overflow-wrap: break-word;
+	height: 90%
 }
 
 .sidebar > ul > ul {
 	margin-left: 3px;
 	border-bottom: 2px solid;
+	overflow: visible;
+}
+
+
+.sidebar > ul > ul span {
+	overflow: visible;
 }
 
 .sidebar li {
 	padding: 3px;
+	word-wrap: border-word;
+	width: 90%;
 }
 
 .sidebar li.active a {
@@ -386,6 +402,7 @@ nav.sidebar {
 	margin-top: 8px;
 }
 
+
 .list-name:hover {
 	background: rgb(180, 205, 235);
 }
@@ -400,6 +417,7 @@ nav.sidebar {
 	position: relative;
 	top: -3px;
 	right: 3px;
+	transform: rotate(90deg);
 }
 
 .ReactModalPortal input {

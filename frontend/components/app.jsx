@@ -8,13 +8,12 @@ import ListForm from './list/list_form';
 
 const App = ({children}) => {
 		return (
-			<div className="app">
+			<div className="app clearfix">
 				<HeaderContainer />
 				<SidebarContainer />
 				<ListContainer />
 				<ListDetailContainer />
 				{children}
-				<ListForm />
 			</div>);
 }
 
