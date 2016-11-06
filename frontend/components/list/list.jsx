@@ -18,9 +18,9 @@ export default class List extends React.Component {
 
 	tasks() {
 		if (!this.state.complete) {
-			return Object.keys(this.props.tasks).map( taskId => <li key={taskId}>{this.props.tasks[taskId].name}</li>)
+			return Object.keys(this.props.tasks.incomplete).map( taskId => <li key={taskId}>{this.props.tasks.incomplete[taskId].name}</li>)
 		} else {
-
+			return Object.keys(this.props.tasks.completed).map( taskId => <li key={taskId}>{this.props.tasks.completed[taskId].name}</li>)
 		}
 	}
 
@@ -53,18 +53,33 @@ export default class List extends React.Component {
 	// }
 
 	render() {
-		return (
-			<main className="list">
-				<div className="tabs">
-					{this.listTabs()}
-				</div>
-				<TaskForm submitTask={this.props.submitTask} listId={this.props.list.id} />
-				<ul className="tasks">
-					<span className="priority"/>
-					{this.tasks()}
-				</ul>
-			</main>
+		if (this.state.complete){
+			return (
+				<main className="list">
+					<div className="tabs">
+						{this.listTabs()}
+					</div>
+					<ul className="tasks">
+						<span className="priority"/>
+						{this.tasks()}
+					</ul>
+				</main>
 
 			)
+		} else {
+			return (
+				<main className="list">
+					<div className="tabs">
+						{this.listTabs()}
+					</div>
+					<TaskForm submitTask={this.props.submitTask} listId={this.props.list.id} />
+					<ul className="tasks">
+						<span className="priority"/>
+						{this.tasks()}
+					</ul>
+				</main>
+
+			)
+		}
 	}
 }

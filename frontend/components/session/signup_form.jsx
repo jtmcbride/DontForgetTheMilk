@@ -30,7 +30,13 @@ class SignupForm extends React.Component {
 
 	errors(errorType) {
 		if (this.props.errors[errorType]) {
-			return this.props.errors[errorType].map((error, i) => <li key={i}>{errorType + " " + error}</li>);
+
+			return (<ul className="form-errors">
+				{this.props.errors[errorType].map((error, i) => 
+					<li key={i}>
+						{errorType + " " + error}
+					</li>)}
+				</ul>);
 		}
 	}
 
@@ -61,18 +67,14 @@ class SignupForm extends React.Component {
 						value={this.state.username} 
 						className={this.props.errors["username"] ? "invalid" : null}
 					/>
-					<ul className="form-errors">
 						{this.errors("username")}
-					</ul>
 					<input 
 						placeholder="Email" 
 						onChange={this.handleChange("email")} 
 						value={this.state.email} 
 						className={this.props.errors["email"] ? "invalid" : null}
 					/>
-					<ul className="form-errors">
 						{this.errors("email")}
-					</ul>
 					<input
 						 placeholder="Password" 
 						 type="password" 
@@ -80,9 +82,7 @@ class SignupForm extends React.Component {
 						 value={this.state.password} 
 						 className={this.props.errors["password"] ? "invalid" : null}
 					 />
-					 <ul className="form-errors">
 						{this.errors("password")}
-					</ul>
 
 					<button onClick={this.handleSubmit}>Sign Up!</button>
 				</form>

@@ -119,6 +119,12 @@ div.signup-images > .circle:nth-child(2) {
 .form-errors {
 	color: red;
 	margin-left: 30px;
+	background-color: rgb(245, 215, 215);
+	border-color: red;
+	padding: 3px 5px;
+	width: 77%;
+	border-radius: 3px;
+	margin-bottom: 6px;
 }
 
 
@@ -142,6 +148,10 @@ div.signup-images > .circle:nth-child(2) {
 }
 
 input.invalid {
+	border-color: red;
+}
+
+.right-half form input.invalid {
 	border-color: red;
 }
 

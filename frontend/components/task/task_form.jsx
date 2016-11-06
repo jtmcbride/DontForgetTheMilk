@@ -21,7 +21,7 @@ export default class TaskForm extends React.Component {
 
 	render() {
 		return (
-			<div className="task-form">
+			<form className="task-form">
 					<input id="task-input" 
 						placeholder="Add A Task..." 
 						value={this.state.name} 
@@ -30,11 +30,10 @@ export default class TaskForm extends React.Component {
 					<button 
 						disabled={this.state.name === ""} 
 						className="add-task" 
-						onClick={this.handleSubmit.bind(this)} 
-					>
-						Add Task
+						onClick={this.handleSubmit.bind(this)}>
+							Add Task
 					</button>
-				</div>
+				</form>
 			)
 	}
 }

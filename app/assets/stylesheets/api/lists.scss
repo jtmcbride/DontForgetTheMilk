@@ -142,13 +142,27 @@ header .header-settings {
 }
 
 
-.dropdown {
+.header .dropdown {
 	position: absolute;
+	color: black;
 	top: 32px;
 	left: -8px;
 	display: none;
-	background: grey;
-	padding: 10px;
+	background: white;
+}
+
+.header .dropdown > li {
+	padding: 5px 15px;
+	font-family: 'Helvetica Neue',Helvetica,Arial,'Apple Color Emoji',clean,sans-serif;
+	font-size: 14px;
+}
+
+.header .dropdown li:first-child {
+	border-bottom: 1px solid lightgrey;
+}
+
+.header .dropdown li:not(:first-child):hover {
+	background: lightgrey;
 }
 
 .settings:hover > .dropdown {
@@ -158,6 +172,7 @@ header .header-settings {
 .app {
 	background: #D9E7F5;
 	height: 100vh;
+	z-index: -1;
 }
 
 
@@ -203,7 +218,7 @@ header .header-settings {
 
 .task-form {
 	border-top: 1px dotted lightgrey;
-	border-bottom: 1px dotted lightgrey;
+	// border-bottom: 1px dotted lightgrey;
 	transition: height .2s ease-in;
 	display: block;
 }
@@ -232,6 +247,10 @@ header .header-settings {
 
 .tasks > li {
 	border-bottom: 1px solid lightgrey;
+}
+
+.tasks {
+	border-top: 1px dotted lightgrey;
 }
 
 .priority {
@@ -340,6 +359,7 @@ nav.sidebar {
 	margin: 5px;
 	font-size: 14px;
 	transition: height 2s linear;
+	overflow: hidden;
 }
 
 .sidebar > ul > ul {

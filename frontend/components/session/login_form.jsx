@@ -47,7 +47,11 @@ class LoginForm extends React.Component {
 
 	errors(errorType) {
 		if (this.props.errors[errorType]) {
-			return this.props.errors[errorType].map((error, i) => <li key={i}>{error}</li>);
+			return (<ul className="form-errors">
+				{this.props.errors[errorType].map((error, i) => <li key={i}>
+					{error}
+				</li>)}
+			</ul>)
 		}
 	}
 
@@ -67,9 +71,8 @@ class LoginForm extends React.Component {
 		  	<div className="right-half">
 			  	<form>
 			  		<h3>Welcome Back!</h3>
-					 <ul className="form-errors">
+					 
 						{this.errors("login")}
-					</ul>
 					
 						<input 
 							placeholder="Username" 
