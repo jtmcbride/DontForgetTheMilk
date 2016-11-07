@@ -11,6 +11,7 @@ import App from './app'
 import SignupFormContainer from "./session/signup_container";
 import LoginFormContainer from "./session/login_container";
 import ListContainer from './list/list_container';
+import TaskDetailContainer from './task/task_detail_container';
 
 import { fetchList } from '../actions/list_actions';
 
@@ -41,7 +42,9 @@ const Root = ({ store }) => {
 	    	<Route path="login" onEnter={_redirectIfLoggedIn} component={LoginFormContainer} />
 	    	<Route path="app" onEnter={_ensureLoggedIn} component={App}>
 	    		<IndexRoute component={ListContainer} />
-	    		<Route path="/app/list/:id" onEnter={setCurrentList} />
+	    		<Route path="/app/list/:id" onEnter={setCurrentList}>
+	    			<Route path="/app/list/:id/task/:taskId" component={TaskDetailContainer} />
+    			</Route>
 	    	</Route>
 	    </Router>
 	  </Provider>

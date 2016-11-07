@@ -1,5 +1,6 @@
 import React from 'react';
 import TaskForm from '../task/task_form'; 
+import Task from '../task/task'
 
 export default class List extends React.Component {
 
@@ -18,9 +19,9 @@ export default class List extends React.Component {
 
 	tasks() {
 		if (!this.state.complete) {
-			return Object.keys(this.props.tasks.incomplete).map( taskId => <li key={taskId}>{this.props.tasks.incomplete[taskId].name}</li>)
+			return Object.keys(this.props.tasks.incomplete).map( taskId => <Task key={taskId} task={this.props.tasks.incomplete[taskId]} />)
 		} else {
-			return Object.keys(this.props.tasks.completed).map( taskId => <li key={taskId}>{this.props.tasks.completed[taskId].name}</li>)
+			return Object.keys(this.props.tasks.completed).map( taskId => <Task key={taskId} task={this.props.tasks.completed[taskId]} />)
 		}
 	}
 

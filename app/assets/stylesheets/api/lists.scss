@@ -268,13 +268,22 @@ header .header-settings {
 // 	display: block;
 // }
 
-.list-detail {
-	background: #E4EEF8;
+.detail {
 	border-radius: 8px;
-	width: calc(49% - 80px);
+	width: calc(48% - 80px);
 	margin-top: 10px;
 	height: 90vh;
-	float: left;
+	float: right;
+}
+
+.list-detail {
+	background: #E4EEF8;
+}
+
+.task-detail {
+	position: absolute;
+	right: 0;
+	background: white;
 }
 
 .tabs {

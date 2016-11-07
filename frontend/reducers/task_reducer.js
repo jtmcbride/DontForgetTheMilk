@@ -9,7 +9,6 @@ const TaskReducer  = (state = { tasks: {incomplete: {}, completed: {}}, task: {}
   let newState;
   switch(action.type) {
     case RECEIVE_LIST:
-      // debugger
       newState = merge({}, state);
       if (action.list.tasks) {
         newState.tasks = action.list.tasks;
@@ -18,7 +17,9 @@ const TaskReducer  = (state = { tasks: {incomplete: {}, completed: {}}, task: {}
       }
       return newState;
     case RECEIVE_TASK:
-      newState = merge({}, state, { task: action.task, errors: [] });
+      debugger
+      newState = merge({}, state, { errors: [] });
+      newState.task = action.task;
       newState.tasks.incomplete[action.task.id] = action.task;
       return newState;
     case RECEIVE_TASKS:

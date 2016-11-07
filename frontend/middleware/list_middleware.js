@@ -1,4 +1,4 @@
-import { CREATE_LIST, UPDATE_LIST, DESTROY_LIST, receiveList, receiveLists, receiveListErrors, FETCH_LISTS, FETCH_LIST, removeList } from '../actions/list_actions';
+import { CREATE_LIST, UPDATE_LIST, DESTROY_LIST, receiveList, receiveCreatedList, receiveLists, receiveListErrors, FETCH_LISTS, FETCH_LIST, removeList } from '../actions/list_actions';
 
 import { createList, updateList, destroyList, fetchList, fetchLists } from '../util/list_api_util';
 
@@ -15,7 +15,7 @@ export default ({ getState, dispatch }) => next => action => {
       fetchLists(listsSuccessCallback, errorCallback);
       return next(action);
     case CREATE_LIST:
-      createList(action.list, successCallback, errorCallback);
+      createList(action.list, list => dispatch(receiveCreatedList(list)), errorCallback);
       return next(action);
     case DESTROY_LIST:
       destroyList(action.id, () => dispatch(removeList(action.id)), error => console.log(error));

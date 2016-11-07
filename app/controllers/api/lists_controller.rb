@@ -15,7 +15,7 @@ class Api::ListsController < ApplicationController
     @list = current_user.lists.new(list_params)
     @list.user_id = current_user.id
     if @list.save
-      render :create
+      render json: @list
     else
       render json: @list.errors.full_messages, status: 422
     end

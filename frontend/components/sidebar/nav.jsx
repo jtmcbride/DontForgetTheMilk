@@ -26,7 +26,6 @@ class SidebarNav extends React.Component {
 	}
 
 	componentDidUpdate() {
-		console.log(this.props.router.params.id)
 		// if (this.props.router.params.id !== this.props.currentListId) {
 		// 	this.props.router.push(`app/list/${this.props.currentListId}`)
 		// }

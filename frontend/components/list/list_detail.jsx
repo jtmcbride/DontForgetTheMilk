@@ -8,7 +8,7 @@ export default class ListDetail extends React.Component {
 
 
 	render() {
-		return (<section className="list-detail">
+		return (<section className="list-detail detail">
 					<header>
 						{this.props.list.title}
 					</header>
