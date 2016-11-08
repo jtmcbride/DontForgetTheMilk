@@ -4,14 +4,14 @@ import { createTask, updateTask, destroyTask, fetchTask, fetchTasks } from '../u
 
 export default ({ getState, dispatch }) => next => action => {
   const successCallback = task => dispatch(receiveTask(task));
-  const tasksSuccessCallback = tasks => dispatch(receiveTasks(tasks));
+  const tasksSuccessCallback = tasks => {dispatch(receiveTasks(tasks))};
   const errorCallback = error => dispatch(receiveTaskErrors(error.responseJSON));
   switch(action.type) {
     case FETCH_TASK:
       fetchTask(action.id, successCallback, errorCallback);
       return next(action);
     case FETCH_TASKS:
-      fetchTasks(tasksSuccessCallback, errorCallback);
+      fetchTasks(action.timeFrame, tasksSuccessCallback, errorCallback);
       return next(action);
     case CREATE_TASK:
       createTask(action.task, action.listId, successCallback, errorCallback);

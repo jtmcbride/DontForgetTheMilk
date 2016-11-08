@@ -25,11 +25,11 @@ class SidebarNav extends React.Component {
 		});
 	}
 
-	componentDidUpdate() {
-		// if (this.props.router.params.id !== this.props.currentListId) {
-		// 	this.props.router.push(`app/list/${this.props.currentListId}`)
-		// }
-	}
+	// componentDidUpdate() {
+	// 	// if (this.props.router.params.id !== this.props.currentListId) {
+	// 	// 	this.props.router.push(`app/list/${this.props.currentListId}`)
+	// 	// }
+	// }
 
 
 	handleDropdownClick(e) {
@@ -53,7 +53,8 @@ class SidebarNav extends React.Component {
 	handleRemoveListClick(id) {
 		return (e) => {
 			e.stopPropagation();
-			this.props.destroyList(id)
+			this.props.destroyList(id);
+			this.props.router.push('/app');
 		}
 	}
 
@@ -82,10 +83,9 @@ class SidebarNav extends React.Component {
 			<nav className="sidebar">
 				<h3 className="logo">DON'T FORGET THE MILK</h3>
 				<ul>
-					<li className="list-title">All Tasks</li>		
-						<ul>
-							<li>Today</li>
-						</ul>
+					<li className="list-name"><Link to="/app/all" className="list-title">All Tasks</Link></li>	
+					<li className="list-name"><Link to="/app/today" className="list-title">Today</Link></li>	
+					<li className="list-name bordered"><Link to="/app/week" className="list-title">This Week</Link></li>
 					<li className="list-title">
 						Lists
 						<ListForm

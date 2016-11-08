@@ -4,7 +4,7 @@ import merge from 'lodash/merge';
 
 const SessionReducer  = (state = { currentUser: null, errors: [] }, action) => {
   Object.freeze(state);
-  console.log(action.type);
+  // console.log(action.type);
   let newState;
   switch(action.type) {
     case RECEIVE_CURRENT_USER:

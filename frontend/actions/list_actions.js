@@ -8,6 +8,7 @@ export const RECEIVE_CREATED_LIST = "RECEIVE_CREATED_LIST";
 export const RECEIVE_LISTS = "RECEIVE_LISTS";
 export const RECEIVE_LIST_ERRORS = "RECEIVE_LIST_ERRORS";
 export const REMOVE_LIST = "REMOVE_LIST";
+export const RECEIVE_PSEUDO_LIST = "RECEIVE_PSEUDO_LIST";
 
 export const createList = list => ({
   type: CREATE_LIST,
@@ -26,6 +27,10 @@ export const receiveList = list => ({
 
 export const receiveCreatedList = list => ({
   type: RECEIVE_CREATED_LIST,
+  list
+});
+export const receivePseudoList = list => ({
+  type: RECEIVE_PSEUDO_LIST,
   list
 });
 

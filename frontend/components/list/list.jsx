@@ -19,7 +19,13 @@ export default class List extends React.Component {
 
 	tasks() {
 		if (!this.state.complete) {
-			return Object.keys(this.props.tasks.incomplete).map( taskId => <Task key={taskId} task={this.props.tasks.incomplete[taskId]} />)
+			return Object.keys(this.props.tasks.incomplete)
+				.map( taskId => (
+					<Task key={taskId} 
+						task={this.props.tasks.incomplete[taskId]} 
+						currentTask={this.props.currentTask.id == taskId}/>
+					)
+				);
 		} else {
 			return Object.keys(this.props.tasks.completed).map( taskId => <Task key={taskId} task={this.props.tasks.completed[taskId]} />)
 		}
@@ -61,7 +67,6 @@ export default class List extends React.Component {
 						{this.listTabs()}
 					</div>
 					<ul className="tasks">
-						<span className="priority"/>
 						{this.tasks()}
 					</ul>
 				</main>
@@ -75,7 +80,6 @@ export default class List extends React.Component {
 					</div>
 					<TaskForm submitTask={this.props.submitTask} listId={this.props.list.id} />
 					<ul className="tasks">
-						<span className="priority"/>
 						{this.tasks()}
 					</ul>
 				</main>

@@ -1,4 +1,4 @@
-import { RECEIVE_LIST, RECEIVE_CREATED_LIST, RECEIVE_LISTS, RECEIVE_LIST_ERRORS, REMOVE_LIST } from '../actions/list_actions';
+import { RECEIVE_LIST, RECEIVE_CREATED_LIST, RECEIVE_LISTS, RECEIVE_LIST_ERRORS, REMOVE_LIST, RECEIVE_PSEUDO_LIST } from '../actions/list_actions';
 import { LOGOUT } from '../actions/session_actions';
 import merge from 'lodash/merge';
 
@@ -8,13 +8,17 @@ const ListReducer  = (state = { lists: {}, list: {}, errors: [] }, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_LIST:
-      debugger
+      // debugger
       newState = merge({}, state, { list: action.list.list, errors: [] });
       newState.lists[action.list.list.id] = action.list.list;
       return newState;
     case RECEIVE_CREATED_LIST:
       newState = merge({}, state);
       newState.lists[action.list.id] = action.list;
+      return newState;
+    case RECEIVE_PSEUDO_LIST:
+      // debugger
+      newState = merge({}, state, { list: action.list.list, errors: [] });
       return newState;
     case RECEIVE_LISTS:
       newState = merge({}, state, { lists: action.lists, errors: [] });

@@ -34,8 +34,9 @@ export const receiveTaskErrors = errors => ({
   errors
 });
 
-export const fetchTasks = () => ({
-  type: FETCH_TASKS
+export const fetchTasks = timeFrame => ({
+  type: FETCH_TASKS,
+  timeFrame
 });
 
 export const fetchTask = id => ({

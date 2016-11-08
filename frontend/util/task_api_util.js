@@ -35,9 +35,10 @@ export const fetchTask = (id, success, error) => {
   });
 };
 
-export const fetchTasks = (success, error) => {
+export const fetchTasks = (timeFrame, success, error) => {
   $.ajax({
     url: `api/tasks`, 
+    data: {timeFrame},
     success,
     error
   });

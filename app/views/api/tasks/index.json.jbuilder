@@ -1,6 +1,3 @@
-
-json.list @list
-
 json.tasks do
   if @incomplete_tasks.empty?
     json.incomplete({})

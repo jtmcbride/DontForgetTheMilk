@@ -1,4 +1,4 @@
-import { RECEIVE_TASK, RECEIVE_TASKS, RECEIVE_TASK_ERRORS, REMOVE_TASK } from '../actions/task_actions';
+import { RECEIVE_TASK, RECEIVE_TASKS, RECEIVE_TASK_ERRORS, REMOVE_TASK, FETCH_TASK } from '../actions/task_actions';
 import { RECEIVE_LIST } from '../actions/list_actions'
 import { LOGOUT } from '../actions/session_actions';
 import merge from 'lodash/merge';
@@ -16,14 +16,23 @@ const TaskReducer  = (state = { tasks: {incomplete: {}, completed: {}}, task: {}
         newState.tasks = {incomplete: {}, completed: {}};
       }
       return newState;
+    case FETCH_TASK:
+      let currentTask = state.tasks.incomplete[action.id] ? state.tasks.incomplete[action.id] : state.tasks.completed[action.id];
+      newState = merge({}, state, { task: currentTask});
+      return newState;
     case RECEIVE_TASK:
-      debugger
+      // debugger
       newState = merge({}, state, { errors: [] });
-      newState.task = action.task;
+      // newState.task = action.task;
       newState.tasks.incomplete[action.task.id] = action.task;
       return newState;
     case RECEIVE_TASKS:
-      newState = merge({}, state, { tasks: {incomplete: action.tasks.incomplete, completed: action.tasks.completed}, errors: [] });
+      newState = merge({}, state);
+      if (action.tasks.tasks) {
+        newState.tasks = action.tasks.tasks;
+      } else {
+        newState.tasks = {incomplete: {}, completed: {}};
+      }
       return newState;
     case REMOVE_TASK:
       newState = merge({}, state)

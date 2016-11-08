@@ -1,8 +1,15 @@
 class Api::TasksController < ApplicationController
 
   def index
-    @tasks = current_user.tasks.all
-    render json: @tasks
+    if params[:timeFrame] == "all"
+      tasks = current_user.tasks.all
+    elsif params[:timeFrame] == "week"
+      tasks = current_user.tasks.where("due_date < '#{Date.today + 7}' and due_date IS NOT NULL")
+    else
+      tasks = current_user.tasks.where(due_date: Date.today)
+    end
+    @incomplete_tasks = tasks.where(completed: false)
+    @completed_tasks = tasks.where(completed: true)
   end
 
   def create
@@ -14,6 +21,11 @@ class Api::TasksController < ApplicationController
     else
       render json: @task.errors, status: 422
     end
+  end
+
+  def show
+    @task = current_user.tasks.find(params[:id])
+    render json: @task
   end
 
   def update

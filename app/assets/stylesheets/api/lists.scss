@@ -118,6 +118,7 @@ header .header-settings {
 	font-size: 20px;
 	cursor: pointer;
 	padding: 6px;
+	z-index: 9999;
 }
 
 .header-settings > span:hover {
@@ -149,6 +150,7 @@ header .header-settings {
 	left: -8px;
 	display: none;
 	background: white;
+	border: 1px solid lightgrey;
 }
 
 .header .dropdown > li {
@@ -251,13 +253,71 @@ header .header-settings {
 
 .tasks {
 	border-top: 1px dotted lightgrey;
-	overflow: scroll;
+	overflow: hidden;
 	height: 80%;
 }
 
-.priority {
-	width: 3px;
-	background: black;
+.tasks:hover {
+	overflow-y: auto;
+}
+
+// .priority {
+// 	width: 3px;
+// 	background: black;
+// }
+
+.tasks a {
+	color: black;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	// padding: 5px 0;
+	border-bottom: 1px dotted lightgrey;
+}
+
+.tasks a > div {
+	padding: 5px 0;
+}
+
+.tasks a:hover {
+	background: rgb(255, 253, 208);
+}
+
+.tasks a.active {
+	background: rgb(255, 253, 208);
+}
+
+.tasks .priority {
+	display: inline-block;
+	width: 0;
+	height: 100%;
+	border-left: 2px solid lightgrey;
+	margin-right: 5px;
+	margin-left: 3px;
+}
+
+.tasks  .priority-1 {
+	border-left: 2px solid red;
+}
+
+.tasks  .priority-2 {
+	border-left: 2px solid blue;
+}
+
+
+.tasks  .priority-3 {
+	border-left: 2px solid lightblue;
+}
+
+
+.task .task-due {
+	margin-right: 5px;
+	font-size: 12px;
+	color: grey;
+}
+
+.task {
+
 }
 // .task-form .add-task {
 // 	display: none;
@@ -297,6 +357,10 @@ nav.sidebar {
 	width: 160px;
 	padding-bottom: 10px;
 	height: 95vh;
+}
+
+.sidebar .list-name.bordered {
+	border-bottom: 2px solid black;
 }
 
 .list-title {
@@ -370,13 +434,19 @@ nav.sidebar {
 	display: inline-block;
 }
 
+
 .sidebar > ul {
 	margin: 5px;
 	font-size: 14px;
 	transition: height 2s linear;
-	overflow-y: scroll;
+	overflow-y: hidden;
 	overflow-wrap: break-word;
-	height: 90%
+	height: 90%;
+}
+
+
+.sidebar > ul:hover {
+	overflow-y: auto;
 }
 
 .sidebar > ul > ul {

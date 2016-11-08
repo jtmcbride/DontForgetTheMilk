@@ -4,7 +4,6 @@ import TaskDetail from './task_detail';
 
 
 const mapStateToProps = ({ task }) => {
-  debugger;
   return ({
   task: task.task,
   errors: task.errors
