@@ -1,4 +1,5 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 
 export default class TaskForm extends React.Component {
 
@@ -7,6 +8,7 @@ export default class TaskForm extends React.Component {
 		this.state = {
 			name: ""
 		}
+		console.log();
 	}
 
 	handleChange(e) {
@@ -15,7 +17,12 @@ export default class TaskForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.submitTask(this.state, this.props.listId);
+		if (hashHistory.getCurrentLocation().pathname.startsWith("/app/today") ||
+				hashHistory.getCurrentLocation().pathname.startsWith("/app/week")) {
+			this.props.submitTask({ name: this.state.name, due_date: new Date })
+		} else {
+			this.props.submitTask(this.state, this.props.listId);
+		}
 		this.setState({name: ""})
 	}
 

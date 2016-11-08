@@ -33,7 +33,6 @@ class SidebarNav extends React.Component {
 
 
 	handleDropdownClick(e) {
-		console.log(e.target.children);
 		let that = e.target.children[0];
 		that.className = "list-dropdown";
 		document.addEventListener("click", function hideDropdown() {
@@ -59,7 +58,6 @@ class SidebarNav extends React.Component {
 	}
 
 	listTitles() {
-		console.log(this.props.currentListId)
 		return Object.keys(this.props.lists)
 			.map( listId => (
 				
