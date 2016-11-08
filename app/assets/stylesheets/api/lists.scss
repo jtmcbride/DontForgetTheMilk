@@ -393,6 +393,43 @@ header .header-settings {
 	width: 20%
 }
 
+.task-detail button {
+	width: 80%;
+	margin: 0 auto;
+	background: #2E8CEB;
+	padding: 5px;
+	border-radius: 3px;
+	color: white;
+	font-size: 15px;
+}
+
+
+.task-input {
+	margin-bottom: 5px;
+	border: 1px solid white;
+	border-radius: 3px;
+	width: 40%;
+}
+
+.task-input:hover {
+	border: 1px solid #66afe9;
+	cursor: pointer;
+}
+
+.task-input:focus {
+	border: 1px solid #66afe9;
+}
+
+.task-input.estimate {
+	width: 10%;
+}
+
+
+header .task-input {
+	width: 80%;
+	font-size: 24px;
+}
+
 .tabs {
 	height: 50px;
 }

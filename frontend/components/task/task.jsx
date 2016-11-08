@@ -9,7 +9,6 @@ const Task = ({task, currentTask, router}) => {
 	}
 	const listId = router.params.id;
 	const listTime = router.params.time
-	console.log(router.params)
 	
 	if (listId) {
 		path = `/app/list/${listId}/task/${task.id}`

@@ -44,6 +44,15 @@ export default class TaskDetail extends React.Component {
 		return e => this.setState({[field]: e.target.value})
 	}
 
+
+
+	handleCompletionClick() {
+		let newState = merge({}, this.state, {completed: !this.state.completed})
+
+		this.props.updateTask(newState);
+		this.setState(newState);
+	}
+
 	// taskSummary() {
 	// 	let keys = {"start_date": "Start", "due_date": "Due", "estimate": "estimate"}
 	// 	let results = {};
@@ -58,20 +67,21 @@ export default class TaskDetail extends React.Component {
 
 
 	render() {
-		// console.log(this.state)
 		return (
 			<section className="task-detail detail">
 				<header>
 					<div className={`priority priority-${this.props.task.priority}`}></div>
-					<input 
+					<textarea
+					  className="task-input"
 		              onChange={this.handleChange("name").bind(this)} 
-		              onBlur={() => this.props.updateTask(this.state)} 
-		              value={this.state.name} />
+		              onBlur={() => this.props.updateTask(this.state)}
+		              value={this.state.name} />    	
 				</header>
 				<section className="task-summary">
 		          <div>
 		            <span className="value-name">Start</span>
-		            <input 
+		            <input
+		         	  className="task-input"
 		              onChange={this.handleChange("start_date").bind(this)} 
 		              onBlur={() => this.props.updateTask(this.state)} 
 		              type="date" 
@@ -80,6 +90,7 @@ export default class TaskDetail extends React.Component {
 		          <div>
 		            <span className="value-name">Due</span>
 		            <input 
+		              className="task-input"
 		              onChange={this.handleChange("due_date").bind(this)} 
 		              onBlur={() => this.props.updateTask(this.state)} 
 		              type="date" 
@@ -87,12 +98,14 @@ export default class TaskDetail extends React.Component {
 		          </div>
 		          <div>
 		            <span className="value-name">Estimate</span>
-		            <input 
+		            <input
+		              className="task-input estimate"
 		              onChange={this.handleChange("estimate").bind(this)} 
-		              onBlur={() => this.props.updateTask(this.state)} 
+		              onBlur={() => {debugger;this.props.updateTask(this.state)}} 
 		              type="number" 
-		              value={this.state.estimate} />
+		              value={this.state.estimate} />Minutes
 		          </div>
+		          <button onClick={this.handleCompletionClick.bind(this)}>Mark As{this.state.completed ? " Incomplete" : " Completed"}</button>
 				</section>
 			</section>
 		);
