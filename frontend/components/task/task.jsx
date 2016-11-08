@@ -13,8 +13,10 @@ const Task = ({task, currentTask, router}) => {
 	
 	if (listId) {
 		path = `/app/list/${listId}/task/${task.id}`
-	} else {
+	} else if (listTime) {
 		path = `app/${listTime}/task/${task.id}`
+	} else {
+		path = `app/all/task/${task.id}`
 	}
 	return (
 		<Link to={path} className={`task ${active}`}>
