@@ -287,7 +287,7 @@ header .header-settings {
 	background: rgb(255, 253, 208);
 }
 
-.tasks .priority {
+.priority {
 	display: inline-block;
 	width: 0;
 	height: 100%;
@@ -296,16 +296,19 @@ header .header-settings {
 	margin-left: 3px;
 }
 
-.tasks  .priority-1 {
+
+
+
+.priority-1, .task-detail .priority.priority-1 {
 	border-left: 2px solid red;
 }
 
-.tasks  .priority-2 {
+.priority-2, .task-detail .priority.priority-2 {
 	border-left: 2px solid blue;
 }
 
 
-.tasks  .priority-3 {
+.priority-3, .task-detail .priority.priority-3 {
 	border-left: 2px solid lightblue;
 }
 
@@ -336,6 +339,8 @@ header .header-settings {
 	float: right;
 }
 
+
+
 .list-detail {
 	background: #E4EEF8;
 }
@@ -344,6 +349,22 @@ header .header-settings {
 	position: absolute;
 	right: 0;
 	background: white;
+}
+
+.task-detail .priority {
+	display: inline-block;
+	width: 0;
+	height: 20px;
+	border-left: 2px solid lightgrey;
+	margin-right: 5px;
+	margin-left: 3px;
+	margin-top: 3px;
+}
+
+.task-detail > header {
+	font-size: 20px;
+	padding: 5px;
+	margin: 3px;
 }
 
 .tabs {

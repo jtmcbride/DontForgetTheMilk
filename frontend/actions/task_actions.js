@@ -4,6 +4,7 @@ export const FETCH_TASKS = "FETCH_TASKS";
 export const DESTROY_TASK = "DESTROY_TASK";
 export const UPDATE_TASK = "UPDATE_TASK";
 export const RECEIVE_TASK = "RECEIVE_TASK";
+export const RECEIVE_CREATED_TASK = "RECEIVE_CREATED_TASK";
 export const RECEIVE_TASKS = "RECEIVE_TASKS";
 export const RECEIVE_TASK_ERRORS = "RECEIVE_TASK_ERRORS";
 export const REMOVE_TASK = "REMOVE_TASK";
@@ -21,6 +22,11 @@ export const destroyTask = id => ({
 
 export const receiveTask = task => ({
   type: RECEIVE_TASK,
+  task
+});
+
+export const receiveCreatedTask = task => ({
+  type: RECEIVE_CREATED_TASK,
   task
 });
 

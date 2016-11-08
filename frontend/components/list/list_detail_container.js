@@ -9,7 +9,8 @@ const mapStateToProps = ({ list }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  });
+  
+});
 
 export default connect(
   mapStateToProps,

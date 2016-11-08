@@ -12,6 +12,7 @@ export default class TaskDetail extends React.Component {
 		return (
 			<section className="task-detail detail">
 				<header>
+					<div className={`priority priority-${this.props.task.priority}`}></div>
 					{this.props.task.name}
 				</header>
 				<div className="details">
