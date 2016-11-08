@@ -83,9 +83,22 @@ export default class TaskDetail extends React.Component {
 		            <input
 		              className="task-input estimate"
 		              onChange={this.handleChange("estimate").bind(this)} 
-		              onBlur={() => {debugger;this.props.updateTask(this.state)}} 
+		              onBlur={() => {this.props.updateTask(this.state)}} 
 		              type="number" 
 		              value={this.state.estimate} />Minutes
+		          </div>
+		           <div>
+		            <span className="value-name">Priority</span>
+		            <select
+		         	  className="task-input"
+		              onChange={this.handleChange("priority").bind(this)} 
+		              onBlur={() => this.props.updateTask(this.state)} 
+		              value={this.state.priority}>
+		              	<option value={null}>0</option>
+		              	<option>1</option>
+		              	<option>2</option>
+		              	<option>3</option>
+		              </select>
 		          </div>
 		          <button onClick={this.handleCompletionClick.bind(this)}>
 		          	Mark As{this.state.completed ? " Incomplete" : " Completed"}

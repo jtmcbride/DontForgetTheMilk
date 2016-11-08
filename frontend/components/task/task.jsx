@@ -3,9 +3,12 @@ import { Link, withRouter } from 'react-router'
 
 const Task = ({task, currentTask, router}) => {
 
-	let path, active;
+	let path, active, completed;
 	if (currentTask) {
 		active = "active";
+	}
+	if (task.completed) {
+		completed = "completed"
 	}
 	const listId = router.params.id;
 	const listTime = router.params.time
@@ -18,7 +21,7 @@ const Task = ({task, currentTask, router}) => {
 		path = `app/all/task/${task.id}`
 	}
 	return (
-		<Link to={path} className={`task ${active}`}>
+		<Link to={path} className={`task ${active} ${completed}`}>
 			<div>
 				<div className={`priority priority-${task.priority}`}></div>
 				<span>

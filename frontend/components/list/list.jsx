@@ -51,13 +51,6 @@ export default class List extends React.Component {
 	handleTabClick() {
 		this.setState({complete: !this.state.complete})
 	}
-  
-
-	// handleSubmit(e) {
-	// 	e.preventDefault();
-	// 	e.stopPropagation();
-	// 	document.getElementById("task-input").focus();
-	// }
 
 	render() {
 		if (this.state.complete){

@@ -261,11 +261,6 @@ header .header-settings {
 	overflow-y: auto;
 }
 
-// .priority {
-// 	width: 3px;
-// 	background: black;
-// }
-
 .tasks a {
 	color: black;
 	width: 100%;
@@ -327,8 +322,8 @@ header .header-settings {
 	width: 100px;
 }
 
-.task {
-
+.task.completed span {
+	text-decoration: line-through;
 }
 // .task-form .add-task {
 // 	display: none;
@@ -353,6 +348,10 @@ header .header-settings {
 	background: #E4EEF8;
 }
 
+.list-detail {
+	text-transform: capitalize;
+}
+
 .task-detail {
 	position: absolute;
 	right: 0;
@@ -362,11 +361,9 @@ header .header-settings {
 .task-detail .priority {
 	display: inline-block;
 	width: 0;
-	height: 20px;
+	height:60px;
 	border-left: 2px solid lightgrey;
-	margin-right: 5px;
-	margin-left: 3px;
-	margin-top: 3px;
+	margin-bottom: 5px;
 }
 
 .task-detail > header {
@@ -405,10 +402,12 @@ header .header-settings {
 
 
 .task-input {
-	margin-bottom: 5px;
+	margin-bottom: 15px;
 	border: 1px solid white;
 	border-radius: 3px;
 	width: 40%;
+	font-size: 14px;
+	font-family: sans-serif;
 }
 
 .task-input:hover {
@@ -428,6 +427,7 @@ header .header-settings {
 header .task-input {
 	width: 80%;
 	font-size: 24px;
+	resize: none
 }
 
 .tabs {
@@ -564,6 +564,7 @@ nav.sidebar {
 	margin: 5px;
 	margin-top: 8px;
 }
+
 
 
 .list-name:hover {

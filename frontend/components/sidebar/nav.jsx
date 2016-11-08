@@ -83,9 +83,11 @@ class SidebarNav extends React.Component {
 			<nav className="sidebar">
 				<h3 className="logo">DON'T FORGET THE MILK</h3>
 				<ul>
-					<li className="list-name"><Link to="/app/all" className="list-title">All Tasks</Link></li>	
-					<li className="list-name"><Link to="/app/today" className="list-title">Today</Link></li>	
-					<li className="list-name bordered"><Link to="/app/week" className="list-title">This Week</Link></li>
+					<li className={this.props.currentListId == "all" ? "list-name active" : "list-name"}>
+						<Link to="/app/all" className="list-title">All Tasks</Link>
+					</li>	
+					<li className={this.props.currentListId == "today" ? "list-name active" : "list-name"}><Link to="/app/today" className="list-title">Today</Link></li>	
+					<li className={this.props.currentListId == "week" ? "list-name active bordered" : "list-name bordered"}><Link to="/app/week" className="list-title">This Week</Link></li>
 					<li className="list-title">
 						Lists
 						<ListForm
