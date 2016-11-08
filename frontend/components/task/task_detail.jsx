@@ -73,7 +73,7 @@ export default class TaskDetail extends React.Component {
 		            <span className="value-name">Start</span>
 		            <input 
 		              onChange={this.handleChange("start_date").bind(this)} 
-		              onBlur={e => console.log(e.target.value)} 
+		              onBlur={() => this.props.updateTask(this.state)} 
 		              type="date" 
 		              value={this.state.start_date} />
 		          </div>
@@ -81,7 +81,7 @@ export default class TaskDetail extends React.Component {
 		            <span className="value-name">Due</span>
 		            <input 
 		              onChange={this.handleChange("due_date").bind(this)} 
-		              onBlur={e => console.log(e.target.value)} 
+		              onBlur={() => this.props.updateTask(this.state)} 
 		              type="date" 
 		              value={this.state.due_date} />
 		          </div>
@@ -89,7 +89,7 @@ export default class TaskDetail extends React.Component {
 		            <span className="value-name">Estimate</span>
 		            <input 
 		              onChange={this.handleChange("estimate").bind(this)} 
-		              onBlur={e => console.log(e.target.value)} 
+		              onBlur={() => this.props.updateTask(this.state)} 
 		              type="number" 
 		              value={this.state.estimate} />
 		          </div>

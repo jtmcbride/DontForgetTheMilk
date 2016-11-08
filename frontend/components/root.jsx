@@ -39,11 +39,10 @@ const Root = ({ store }) => {
   		store.dispatch(fetchTask(nextState.params.taskId));
   	};
 
-  	const allTasks = (type) => {
-  		return () => {
-  			store.dispatch(fetchTasks(type));
-  			store.dispatch(receivePseudoList({list: {title: type, id: type}}));
-  		}
+  	const allTasks = (nextState) => {
+  		console.log(nextState);
+		store.dispatch(fetchTasks(nextState.params.time));
+		store.dispatch(receivePseudoList({ list: { title: nextState.params.time, id: nextState.params.time } }));
   		
   	}
 
@@ -54,15 +53,15 @@ const Root = ({ store }) => {
 	    	<Route path="signup" onEnter={_redirectIfLoggedIn}  component={SignupFormContainer} />
 	    	<Route path="login" onEnter={_redirectIfLoggedIn} component={LoginFormContainer} />
 	    	<Route path="app" onEnter={_ensureLoggedIn} component={App}>
-	    		<IndexRoute onEnter={allTasks("all")} />
+	    		<IndexRoute onEnter={allTasks} />
 
-	    		<Route path="/app/all" onEnter={allTasks("all")}>
+	    		<Route path="/app/:time" onEnter={allTasks}>
 					<Route path="task/:taskId" onEnter={setCurrentTask} component={TaskDetailContainer} />
 	    		</Route>
-	    		<Route path="/app/today" onEnter={allTasks("today")}>
+	    		<Route path="/app/today" onEnter={allTasks}>
 					<Route path="task/:taskId" onEnter={setCurrentTask} component={TaskDetailContainer} />
 	    		</Route>
-	    		<Route path="/app/week" onEnter={allTasks("week")}>
+	    		<Route path="/app/week" onEnter={allTasks}>
 					<Route path="task/:taskId" onEnter={setCurrentTask} component={TaskDetailContainer} />
 	    		</Route>
 	    		<Route path="/app/list/:id" onEnter={setCurrentList}>
