@@ -16,12 +16,6 @@ export default class TaskDetail extends React.Component {
 			priority: this.props.task.priority ? this.props.task.priority : "",
 			completed: this.props.task.completed ? this.props.task.completed : false,
 		};
-		// Object.keys(this.state).forEach(key => {
-		// 	if (!this.state[key]) {
-		// 		this.state[key] = ""
-		// 	}
-		// })
-
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -52,18 +46,6 @@ export default class TaskDetail extends React.Component {
 		this.props.updateTask(newState);
 		this.setState(newState);
 	}
-
-	// taskSummary() {
-	// 	let keys = {"start_date": "Start", "due_date": "Due", "estimate": "estimate"}
-	// 	let results = {};
-	// 	let task  = this.props.task;
-	// 	for (let key in keys) {
-	// 		if (task[key]) {
-	// 			results[keys[key]] = task[key];
-	// 		}
-	// 	}
-	// 	return Object.keys(keys).map((key) => <div key={key}><span className="value-name">{keys[key]}</span><input onChange={this.handleChange(key).bind(this)} onBlur={e => console.log(e.target.value)} type={key == "estimate" ? "number" : "date"} value={this.state[key]} /></div>)
-	// }
 
 
 	render() {
@@ -105,7 +87,9 @@ export default class TaskDetail extends React.Component {
 		              type="number" 
 		              value={this.state.estimate} />Minutes
 		          </div>
-		          <button onClick={this.handleCompletionClick.bind(this)}>Mark As{this.state.completed ? " Incomplete" : " Completed"}</button>
+		          <button onClick={this.handleCompletionClick.bind(this)}>
+		          	Mark As{this.state.completed ? " Incomplete" : " Completed"}
+		          </button>
 				</section>
 			</section>
 		);

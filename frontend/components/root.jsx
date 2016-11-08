@@ -40,8 +40,13 @@ const Root = ({ store }) => {
   	};
 
   	const allTasks = (nextState) => {
-		store.dispatch(fetchTasks(nextState.params.time));
-		store.dispatch(receivePseudoList({ list: { title: nextState.params.time, id: nextState.params.time } }));
+  		if (nextState.params.time) {
+			store.dispatch(fetchTasks(nextState.params.time));
+			store.dispatch(receivePseudoList({ list: { title: nextState.params.time, id: nextState.params.time } }));
+		} else {
+			store.dispatch(fetchTasks("all"));
+			store.dispatch(receivePseudoList({ list: { title: "all", id: "all" } }));
+		}
   		
   	}
 
