@@ -10,7 +10,7 @@
 #  start_date :date
 #  due_date   :date
 #  priority   :integer
-# estimate   :integer
+#  estimate   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

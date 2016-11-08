@@ -3,6 +3,7 @@ export const FETCH_TASK = "FETCH_TASK";
 export const FETCH_TASKS = "FETCH_TASKS";
 export const DESTROY_TASK = "DESTROY_TASK";
 export const UPDATE_TASK = "UPDATE_TASK";
+export const RECEIVE_UPDATED_TASK = "RECEIVE_UPDATED_TASK";
 export const RECEIVE_TASK = "RECEIVE_TASK";
 export const RECEIVE_CREATED_TASK = "RECEIVE_CREATED_TASK";
 export const RECEIVE_TASKS = "RECEIVE_TASKS";
@@ -57,5 +58,10 @@ export const removeTask = id => ({
 
 export const updateTask = task => ({
   type: UPDATE_TASK,
+  task
+});
+
+export const receiveUpdatedTask = task => ({
+  type: RECEIVE_UPDATED_TASK,
   task
 });
