@@ -343,15 +343,6 @@ header .header-settings {
 }
 
 
-
-.list-detail {
-	background: #E4EEF8;
-}
-
-.list-detail {
-	text-transform: capitalize;
-}
-
 .task-detail {
 	position: absolute;
 	right: 0;
@@ -376,6 +367,7 @@ header .header-settings {
 	display: flex;
 	flex-direction: column;
 	margin-top: 20px;
+	max-width: 500px;
 }
 
 .task-summary .value-name {

@@ -1,0 +1,69 @@
+.list-detail {
+	background: #E4EEF8;
+}
+
+.list-detail {
+	text-transform: capitalize;
+}
+
+.list-detail > header {
+	font-size: 25px;
+	margin: 12px;
+}
+
+
+.list-detail .list-summary {
+	display: flex;
+	margin: 12px;
+}
+
+
+.list-detail .list-summary  div {
+	display: flex;
+	justify-content: space-around;
+}
+
+
+.list-summary > div > div {
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	padding: 0 5px;
+}
+
+
+.list-detail .list-summary > div {
+	background: rgb(212, 226, 244);
+	padding: 10px;
+	border-radius: 5px;
+	margin: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+.list-detail .list-summary > div:first-child {
+	background: rgb(212, 226, 244);
+	padding: 10px;
+	border-radius: 5px;
+	flex-direction: row;
+}
+
+.list-detail .divider {
+	height: 100%;
+	margin-top: 0;
+}
+
+.list-summary .overdue > span:first-child {
+	color: red;
+}
+
+.list-summary .num-tasks > span:first-child {
+	color: #0060BF;
+}
+
+.list-summary .completed {
+	color: grey;
+}
+

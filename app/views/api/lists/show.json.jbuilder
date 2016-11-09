@@ -8,7 +8,7 @@ json.tasks do
   	json.incomplete do
   		@incomplete_tasks.each do |task|
   			json.set! task.id do
-  				json.extract! task, :id, :name, :priority, :completed, :due_date
+  				json.extract! task, :id, :name, :priority, :completed, :due_date, :estimate
   			end
   		end
   	end
@@ -19,7 +19,7 @@ json.tasks do
   	json.completed do
   		@completed_tasks.each do |task|
   			json.set! task.id do
-  				json.extract! task, :id, :name, :priority, :completed, :due_date
+  				json.extract! task, :id, :name, :priority, :completed, :due_date, :estimate
   			end
   		end
   	end
