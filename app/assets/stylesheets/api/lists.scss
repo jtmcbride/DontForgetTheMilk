@@ -352,15 +352,25 @@ header .header-settings {
 .task-detail .priority {
 	display: inline-block;
 	width: 0;
-	height:60px;
+	height: 24px;
 	border-left: 2px solid lightgrey;
-	margin-bottom: 5px;
 }
 
 .task-detail > header {
 	font-size: 20px;
 	padding: 5px;
 	margin: 3px;
+}
+
+.task-detail > .close {
+	float: right;
+	margin: 10px;
+	color: grey;
+	cursor: pointer;
+}
+
+.task-detail > .close:hover {
+	color: black;
 }
 
 .task-detail > .task-summary {

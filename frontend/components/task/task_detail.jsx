@@ -1,5 +1,6 @@
 import React from 'react';
 import merge from 'lodash/merge';
+import {hashHistory } from "react-router";
 
 
 export default class TaskDetail extends React.Component {
@@ -38,6 +39,9 @@ export default class TaskDetail extends React.Component {
 		return e => this.setState({[field]: e.target.value})
 	}
 
+	handlePriorityChange(e) {
+		this.setState({priority: e.target.value}, () => {$('#task-priority').blur()})
+	}
 
 
 	handleCompletionClick() {
@@ -51,13 +55,19 @@ export default class TaskDetail extends React.Component {
 	render() {
 		return (
 			<section className="task-detail detail">
+				<div className="close" onClick={() => {
+					let location = hashHistory.getCurrentLocation().pathname;
+					location = location.slice(0, location.indexOf("/task"));
+					hashHistory.push(location);
+				}}
+				>Close <span>X</span></div>
 				<header>
 					<div className={`priority priority-${this.props.task.priority}`}></div>
-					<textarea
+					<input
 					  className="task-input"
 		              onChange={this.handleChange("name").bind(this)} 
 		              onBlur={() => this.props.updateTask(this.state)}
-		              value={this.state.name} />    	
+		              value={this.state.name} />
 				</header>
 				<section className="task-summary">
 		          <div>
@@ -90,10 +100,12 @@ export default class TaskDetail extends React.Component {
 		           <div>
 		            <span className="value-name">Priority</span>
 		            <select
+		              id="task-priority"
 		         	  className="task-input"
 		              onChange={this.handleChange("priority").bind(this)} 
 		              onBlur={() => this.props.updateTask(this.state)} 
-		              value={this.state.priority}>
+		              value={this.state.priority} 
+		              onChange={this.handlePriorityChange.bind(this)}>
 		              	<option value={null}>0</option>
 		              	<option>1</option>
 		              	<option>2</option>
