@@ -14,7 +14,6 @@ const overdueTasks = (tasks) => {
   let currentDate = new Date;
   currentDate.setHours(0,0,0,0);
   Object.keys(tasks).map(taskId => tasks[taskId].due_date).forEach(dueDate => {
-    console.log(new Date(dueDate))
     if (dueDate && currentDate > new Date(dueDate).setHours(24,10,10,0)) {
       overdue++;
     }

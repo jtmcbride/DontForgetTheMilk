@@ -657,3 +657,24 @@ nav.sidebar {
   opacity: 0.01;
   transition: opacity 300ms ease-in;
 }
+
+
+.task-detail-transition-enter {
+  // transform: rotate(79deg)
+  transform: translateX(1000px);
+}
+
+.task-detail-transition-enter.task-detail-transition-enter-active {
+  // transform: rotate(3600deg);
+  transform: translateX(0px);
+  transition: transform 500ms;
+}
+
+.task-detail-transition-leave {
+  transform: translateX(0px)
+}
+
+.task-detail-transition-leave.task-detail-transition-leave-active {
+  transform: translateX(1000px);
+  transition: transform 300ms ease-in;
+}

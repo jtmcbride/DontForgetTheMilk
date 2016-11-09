@@ -17,6 +17,18 @@ export default class TaskDetail extends React.Component {
 			priority: this.props.task.priority ? this.props.task.priority : "",
 			completed: this.props.task.completed ? this.props.task.completed : false,
 		};
+		this.escapeClose = (e) => {
+			if (e.key === "Escape") {
+				let location = hashHistory.getCurrentLocation().pathname;
+				location = location.slice(0, location.indexOf("/task"));
+				hashHistory.push(location);
+				document.removeEventListener("keydown", this.escapeClose);
+			}
+		}
+	}
+
+	componentDidMount() {
+		document.addEventListener("keydown", this.escapeClose);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -32,6 +44,10 @@ export default class TaskDetail extends React.Component {
 			if (task.completed === "") {task.completed = false}
 			this.setState(task);
 		}
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener("keydown", this.escapeClose);
 	}
 
 
