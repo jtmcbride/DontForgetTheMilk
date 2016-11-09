@@ -43,3 +43,12 @@ export const fetchTasks = (timeFrame, success, error) => {
     error
   });
 };
+
+export const fetchSearchTasks = (query, success, error) => {
+  $.ajax({
+    url: `api/tasks`, 
+    data: {query},
+    success,
+    error
+  });
+}

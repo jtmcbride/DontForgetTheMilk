@@ -9,15 +9,19 @@ class Header extends React.Component {
 		this.username = this.props.user ? this.props.user.username : null;
 	}
 
+	componentDidUpdate() {
+		if (!this.props.user) {
+			this.props.router.replace("login");
+		}
+	}
 
 	handleLogout() {
 		this.props.logout();
 	}
 
-	componentDidUpdate() {
-		if (!this.props.user) {
-			this.props.router.replace("login");
-		}
+	handleSearch() {
+		this.props.search($("#search").val());
+		this.props.router.push("app/search");
 	}
 
 	
@@ -26,10 +30,10 @@ class Header extends React.Component {
 		return (
 			<header id="header" className="header">
 				<div className="header-main">
-					<div className="header-search">
-					<input aria-label="Search Tasks" placeholder="Search Tasks" />
-					<div className="search-button" id="header-search-button"></div>
-					</div>
+					<form className="header-search">
+						<input id="search" aria-label="Search Tasks" placeholder="Search Tasks" />
+						<div className="search-button" id="header-search-button" onClick={this.handleSearch.bind(this)}></div>
+					</form>
 					<div className="header-settings">
 						<span className="notifications"></span>
 						<div className="divider"></div>

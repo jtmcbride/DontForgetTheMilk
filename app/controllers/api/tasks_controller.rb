@@ -1,7 +1,9 @@
 class Api::TasksController < ApplicationController
 
   def index
-    if params[:timeFrame] == "all"
+    if params[:query]
+      tasks = current_user.tasks.where("name LIKE ?", "%#{params[:query]}%")
+    elsif params[:timeFrame] == "all"
       tasks = current_user.tasks.all
     elsif params[:timeFrame] == "week"
       tasks = current_user.tasks.where("due_date < '#{Date.today + 7}' and due_date IS NOT NULL")

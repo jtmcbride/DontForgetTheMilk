@@ -50,6 +50,10 @@ const Root = ({ store }) => {
   		
   	}
 
+  	const setSearchList = () => {
+  		store.dispatch(receivePseudoList({ list: { title: "search", id: "search" } }));
+  	}
+
 	return (
 	  <Provider store={store}>
 	    <Router history={hashHistory} >
@@ -60,6 +64,9 @@ const Root = ({ store }) => {
 	    		<IndexRoute onEnter={allTasks} />
 
 	    		<Route path="/app/:time" onEnter={allTasks}>
+					<Route path="task/:taskId" onEnter={setCurrentTask} component={TaskDetailContainer} />
+	    		</Route>
+	    		<Route path="/app/search" onEnter={setSearchList}>
 					<Route path="task/:taskId" onEnter={setCurrentTask} component={TaskDetailContainer} />
 	    		</Route>
 	    		<Route path="/app/list/:id" onEnter={setCurrentList}>
