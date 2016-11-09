@@ -3,7 +3,7 @@ import { CREATE_LIST, UPDATE_LIST, DESTROY_LIST, receiveList, receiveCreatedList
 import { createList, updateList, destroyList, fetchList, fetchLists } from '../util/list_api_util';
 
 export default ({ getState, dispatch }) => next => action => {
-  const successCallback = list => dispatch(receiveList(list));
+  const successCallback = list => {console.log(list);dispatch(receiveList(list))};
   const listsSuccessCallback = lists => dispatch(receiveLists(lists));
   const errorCallback = error => dispatch(receiveListErrors(error.responseJSON));
 

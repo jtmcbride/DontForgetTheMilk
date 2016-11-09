@@ -61,10 +61,9 @@ class SidebarNav extends React.Component {
 	listTitles() {
 		return Object.keys(this.props.lists)
 			.map( listId => (
-				
 					<li className={this.props.currentListId == listId ? "list-name active" : "list-name"} key={listId}>
 						<Link to={`app/list/${listId}`} >
-							<span>{this.props.lists[listId].title}</span>
+							<span>{this.props.lists[listId].title}</span> <span>{this.props.lists[listId].count}</span>
 						</Link>
 						<span onClick={this.handleDropdownClick.bind(this)} className="list-options-dropdown">
 							<ul className="list-dropdown hidden">

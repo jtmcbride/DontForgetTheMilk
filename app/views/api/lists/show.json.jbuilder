@@ -1,5 +1,6 @@
 
 json.list @list
+json.count @incomplete_tasks.count
 
 json.tasks do
   if @incomplete_tasks.empty?

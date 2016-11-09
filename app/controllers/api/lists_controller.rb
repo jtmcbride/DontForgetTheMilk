@@ -2,7 +2,7 @@ class Api::ListsController < ApplicationController
 
 
   def index
-    @lists = current_user.lists
+    @lists = List.user_lists_with_task_count(current_user)
   end
 
   def show

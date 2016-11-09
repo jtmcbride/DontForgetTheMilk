@@ -19,7 +19,7 @@ const App = ({children}) => {
 				<ReactCSSTransitionGroup
 		          transitionName="task-detail-transition"
 		          transitionEnterTimeout={2000}
-		          transitionLeaveTimeout={0}>
+		          transitionLeaveTimeout={10}>
 					{children}
 				</ReactCSSTransitionGroup>
 			</div>);

@@ -10,6 +10,7 @@ const ListReducer  = (state = { lists: {}, list: {}, errors: [] }, action) => {
     case RECEIVE_LIST:
       newState = merge({}, state, { list: action.list.list, errors: [] });
       newState.lists[action.list.list.id] = action.list.list;
+      newState.lists[action.list.list.id].count = action.list.count
       return newState;
     case RECEIVE_CREATED_LIST:
       newState = merge({}, state);

@@ -336,7 +336,7 @@ header .header-settings {
 
 .detail {
 	border-radius: 8px;
-	width: calc(48% - 80px);
+	width: calc(48% - 90px);
 	margin-top: 10px;
 	height: 90vh;
 	float: right;
@@ -440,7 +440,7 @@ header .task-input {
 
 nav.sidebar {
 	float: left;
-	width: 160px;
+	width: 185px;
 	padding-bottom: 10px;
 	height: 95vh;
 }
@@ -517,7 +517,16 @@ nav.sidebar {
 .list-name a {
 	color: black;
 	width: 84%;
-	display: inline-block;
+	display: inline-flex;
+	justify-content: space-between;
+}
+
+.list-name a > span:nth-child(2) {
+	border-radius: 3px;
+	background: rgb(180, 205, 235);
+	min-width: 20px;
+	text-align: center;
+	max-height: 16px;
 }
 
 
@@ -565,6 +574,13 @@ nav.sidebar {
 	text-align: center;
 	margin: 5px;
 	margin-top: 8px;
+	color: #2E8CEB;
+	font-size: 26px;
+	text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
 }
 
 
@@ -671,7 +687,7 @@ nav.sidebar {
 }
 
 .task-detail-transition-leave {
-  transform: translateX(0px)
+  transform: translateX(1px)
 }
 
 .task-detail-transition-leave.task-detail-transition-leave-active {
