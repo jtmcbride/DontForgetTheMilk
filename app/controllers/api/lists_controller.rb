@@ -23,10 +23,13 @@ class Api::ListsController < ApplicationController
 
   def update
     @list = current_user.lists.includes(:tasks).find(params[:id])
-    @list.update(list_params)
-    @completed_tasks = @list.tasks.where(completed: true)
-    @incomplete_tasks = @list.tasks.where(completed: false)
-    render :show
+    if @list.update(list_params)
+      @completed_tasks = @list.tasks.where(completed: true)
+      @incomplete_tasks = @list.tasks.where(completed: false)
+      render :show
+    else
+      render json: ["error"], status: 422
+    end
   end
 
   def destroy

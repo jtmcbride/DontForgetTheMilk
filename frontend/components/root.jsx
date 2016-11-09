@@ -62,11 +62,12 @@ const Root = ({ store }) => {
 	    	<Route path="login" onEnter={_redirectIfLoggedIn} component={LoginFormContainer} />
 	    	<Route path="app" onEnter={_ensureLoggedIn} component={App}>
 	    		<IndexRoute onEnter={allTasks} />
-
-	    		<Route path="/app/:time" onEnter={allTasks}>
+	    		
+	    		<Route path="/app/search" onEnter={setSearchList}>
 					<Route path="task/:taskId" onEnter={setCurrentTask} component={TaskDetailContainer} />
 	    		</Route>
-	    		<Route path="/app/search" onEnter={setSearchList}>
+
+	    		<Route path="/app/:time" onEnter={allTasks}>
 					<Route path="task/:taskId" onEnter={setCurrentTask} component={TaskDetailContainer} />
 	    		</Route>
 	    		<Route path="/app/list/:id" onEnter={setCurrentList}>

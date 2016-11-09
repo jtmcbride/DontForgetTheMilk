@@ -8,7 +8,8 @@ export default class List extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			complete: false
+			complete: false,
+			sort: ""
 		}
 	};
 
@@ -56,6 +57,11 @@ export default class List extends React.Component {
 		if (this.state.complete){
 			return (
 				<main className="list">
+					<select placeholder="Sort by...">
+						<option>Due Date</option>
+						<option></option>
+						<option></option>
+					</select>
 					<div className="tabs">
 						{this.listTabs()}
 					</div>

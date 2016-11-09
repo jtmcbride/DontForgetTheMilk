@@ -8,7 +8,6 @@ const ListReducer  = (state = { lists: {}, list: {}, errors: [] }, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_LIST:
-      // debugger
       newState = merge({}, state, { list: action.list.list, errors: [] });
       newState.lists[action.list.list.id] = action.list.list;
       return newState;
@@ -17,7 +16,6 @@ const ListReducer  = (state = { lists: {}, list: {}, errors: [] }, action) => {
       newState.lists[action.list.id] = action.list;
       return newState;
     case RECEIVE_PSEUDO_LIST:
-      // debugger
       newState = merge({}, state, { list: action.list.list, errors: [] });
       return newState;
     case RECEIVE_LISTS:

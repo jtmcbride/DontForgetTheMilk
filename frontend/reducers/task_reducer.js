@@ -24,7 +24,6 @@ const TaskReducer  = (state = { tasks: {incomplete: {}, completed: {}}, task: {}
       newState = merge({}, state, { task: currentTask});
       return newState;
     case RECEIVE_CREATED_TASK:
-      // debugger
       newState = merge({}, state, { errors: [] });
       // newState.task = action.task;
       newState.tasks.incomplete[action.task.id] = action.task;

@@ -43,6 +43,7 @@ class SidebarNav extends React.Component {
 
 	handleUpdateListClick(list) {
 		return (e) => {
+			debugger
 			e.stopPropagation();
 			this.setState({modalOpen: true, title: list.title, formType: "update", updateId: list.id});
 		}

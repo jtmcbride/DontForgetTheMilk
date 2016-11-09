@@ -57,7 +57,7 @@ export default class ListForm extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		let changedProps = (nextProps.title !== this.state.title && nextProps.open !== this.state.modalIsOpen && nextProps.updateId !== this.state.updateId && nextProps.formType !== this.state.formType);
+		let changedProps = (nextProps.open !== this.state.modalIsOpen)
 		if (changedProps) {
 			this.setState({
 				modalIsOpen: true,
@@ -77,19 +77,6 @@ export default class ListForm extends React.Component {
 	}
 
 
-	// form() {
-
-	// 	<form className="modal-form">
- //          <label>
-	//            Title: <br />
-	//            <input className={this.state.error ? "invalid" : null} value={this.state.title} onChange={this.handleChange.bind(this)}/>
-	           
- //          </label>
- //       	 <button onClick={this.handleSubmit.bind(this)}>Submit</button>
- //       	 {this.error()}
-	// 	</form>
-
-	// }
 
 	render() {
 			return (
