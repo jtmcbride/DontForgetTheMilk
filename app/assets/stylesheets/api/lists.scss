@@ -394,7 +394,8 @@ header .header-settings {
 }
 
 .task-detail > .task-summary  span:first-child {
-	width: 20%
+	width: 20%;
+	margin-bottom: 15px;
 }
 
 .task-detail button {
@@ -415,6 +416,11 @@ header .header-settings {
 	width: 40%;
 	font-size: 14px;
 	font-family: sans-serif;
+}
+
+.task-input.datepicker {
+	width: 100px;
+	margin-bottom: 0
 }
 
 .task-input:hover {

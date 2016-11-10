@@ -15,8 +15,8 @@ export default class TaskDetail extends React.Component {
 			id: this.props.task.name ? this.props.task.name : "",
 			name: this.props.task.name ? this.props.task.name : "",
 			estimate: this.props.task.estimate ? this.props.task.estimate : "",
-			start_date: this.props.task.start_date ? this.props.task.start_date : "",
-			due_date: this.props.task.due_date ? moment(this.props.task.due_date) : moment(),
+			start_date: this.props.task.start_date ? moment(this.props.task.start_date) : null,
+			due_date: this.props.task.due_date ? moment(this.props.task.due_date) : null,
 			priority: this.props.task.priority ? this.props.task.priority : "",
 			completed: this.props.task.completed ? this.props.task.completed : false,
 		};
@@ -36,6 +36,7 @@ export default class TaskDetail extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		let task = {};
+		debugger
 		if (nextProps.task.id){
 			Object.keys(nextProps.task).forEach(key => {
 				if (nextProps.task[key]) {
@@ -45,7 +46,8 @@ export default class TaskDetail extends React.Component {
 				}
 			});
 			if (task.completed === "") {task.completed = false}
-			if (task.due_date === "") {task.due_date = moment()}
+			// if (task.due_date === "") {task.due_date = moment()}
+			// if (task.start_date === "") {task.start_date = moment()}
 			this.setState(task);
 		}
 	}
@@ -59,8 +61,10 @@ export default class TaskDetail extends React.Component {
 		return e => this.setState({[field]: e.target.value})
 	}
 
-	handleDateChange(date) {
-		this.setState({due_date: date})
+	handleDateChange(type) {
+		return (date) => {
+			this.setState({[type]: date ? date._d : date})
+		}
 	}
 
 	handlePriorityChange(e) {
@@ -75,8 +79,10 @@ export default class TaskDetail extends React.Component {
 		this.setState(newState);
 	}
 
-	handleBlur() {
-		this.props.updateTask(merge({}, this.state, {due_date: this.state.due_date._d}));
+	handleBlur(type) {
+		return () => {
+			this.props.updateTask({id: this.state.id, [type]: this.state[type] ? this.state[type] : null});
+		}
 	}
 
 
@@ -100,20 +106,23 @@ export default class TaskDetail extends React.Component {
 				<section className="task-summary">
 		          <div>
 		            <span className="value-name">Start</span>
-		            <input
-		         	  className="task-input"
-		              onChange={this.handleChange("start_date").bind(this)} 
-		              onBlur={() => this.props.updateTask(this.state)} 
-		              type="date" 
-		              value={this.state.start_date} />
+		            <DatePicker 
+		              className="task-input datepicker"
+		              onChange={this.handleDateChange("start_date").bind(this)} 
+		              onBlur={this.handleBlur("start_date").bind(this)}
+		              isClearable={true}
+		              placeholderText="No Start Date"
+		              selected={this.state.start_date ? moment(this.state.start_date) : null} />
 		          </div>
 		          <div>
 		            <span className="value-name">Due</span>
 		            <DatePicker 
-		              className="task-input"
-		              onChange={this.handleDateChange.bind(this)} 
-		              onBlur={this.handleBlur.bind(this)}
-		              selected={moment(this.state.due_date)} />
+		              className="task-input datepicker"
+		              onChange={this.handleDateChange("due_date").bind(this)} 
+		              onBlur={this.handleBlur("due_date").bind(this)}
+		              isClearable={true}
+		              placeholderText="No Due Date"
+		              selected={this.state.due_date ? moment(this.state.due_date) : null} />
 		          </div>
 		          <div>
 		            <span className="value-name">Estimate</span>
