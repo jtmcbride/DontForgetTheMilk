@@ -88,7 +88,6 @@ export default class List extends React.Component {
 							</select>
 						</li>
 					</ul>
-					<span>ello</span>
 				</div>
 			)
 		} else {

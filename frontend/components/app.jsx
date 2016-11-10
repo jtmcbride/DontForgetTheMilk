@@ -18,8 +18,8 @@ const App = ({children}) => {
 				<ListDetailContainer />
 				<ReactCSSTransitionGroup
 		          transitionName="task-detail-transition"
-		          transitionEnterTimeout={2000}
-		          transitionLeaveTimeout={10}>
+		          transitionEnterTimeout={500}
+		          transitionLeaveTimeout={0}>
 					{children}
 				</ReactCSSTransitionGroup>
 			</div>);

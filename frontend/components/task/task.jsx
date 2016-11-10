@@ -12,11 +12,13 @@ const Task = ({task, currentTask, router}) => {
 	}
 	const listId = router.params.id;
 	const listTime = router.params.time
-	
+
 	if (listId) {
 		path = `/app/list/${listId}/task/${task.id}`
 	} else if (listTime) {
 		path = `app/${listTime}/task/${task.id}`
+	} else if (/search/.test(router.location.pathname)) {
+		path = `app/search/task/${task.id}`
 	} else {
 		path = `app/all/task/${task.id}`
 	}

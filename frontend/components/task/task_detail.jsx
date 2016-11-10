@@ -36,7 +36,6 @@ export default class TaskDetail extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		let task = {};
-		debugger
 		if (nextProps.task.id){
 			Object.keys(nextProps.task).forEach(key => {
 				if (nextProps.task[key]) {
@@ -63,7 +62,7 @@ export default class TaskDetail extends React.Component {
 
 	handleDateChange(type) {
 		return (date) => {
-			this.setState({[type]: date ? date._d : date})
+			this.setState({[type]: date ? date._d : date}, () => {this.props.updateTask({id: this.state.id, [type]: this.state[type]})})
 		}
 	}
 
