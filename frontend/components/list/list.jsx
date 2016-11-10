@@ -78,7 +78,7 @@ export default class List extends React.Component {
 						<li className="inactive" onClick={this.handleTabClick.bind(this)}>Incomplete</li>
 						<li className="active">Completed</li>
 						<li>
-							<select value={this.state.sort} onChange={e => this.setState({sort: e.target.value})}>
+							<select className="sort-select" value={this.state.sort} onChange={e => this.setState({sort: e.target.value})}>
 								<option disabled value="">Sort by...</option>
 								<option value="">Time Created</option>
 								<option value="due_date">Due Date</option>
