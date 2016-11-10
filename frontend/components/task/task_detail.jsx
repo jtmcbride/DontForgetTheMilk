@@ -1,6 +1,9 @@
 import React from 'react';
 import merge from 'lodash/merge';
-import {hashHistory } from "react-router";
+import {hashHistory } from 'react-router';
+import moment from 'moment';
+
+import DatePicker from 'react-datepicker';
 
 
 export default class TaskDetail extends React.Component {
@@ -13,7 +16,7 @@ export default class TaskDetail extends React.Component {
 			name: this.props.task.name ? this.props.task.name : "",
 			estimate: this.props.task.estimate ? this.props.task.estimate : "",
 			start_date: this.props.task.start_date ? this.props.task.start_date : "",
-			due_date: this.props.task.due_date ? this.props.task.due_date : "",
+			due_date: this.props.task.due_date ? moment(this.props.task.due_date) : moment(),
 			priority: this.props.task.priority ? this.props.task.priority : "",
 			completed: this.props.task.completed ? this.props.task.completed : false,
 		};
@@ -42,6 +45,7 @@ export default class TaskDetail extends React.Component {
 				}
 			});
 			if (task.completed === "") {task.completed = false}
+			if (task.due_date === "") {task.due_date = moment()}
 			this.setState(task);
 		}
 	}
@@ -53,6 +57,10 @@ export default class TaskDetail extends React.Component {
 
 	handleChange(field) {
 		return e => this.setState({[field]: e.target.value})
+	}
+
+	handleDateChange(date) {
+		this.setState({due_date: date})
 	}
 
 	handlePriorityChange(e) {
@@ -67,9 +75,12 @@ export default class TaskDetail extends React.Component {
 		this.setState(newState);
 	}
 
+	handleBlur() {
+		this.props.updateTask(merge({}, this.state, {due_date: this.state.due_date._d}));
+	}
+
 
 	render() {
-		console.log("detail render")
 		return (
 			<section className="task-detail detail">
 				<div className="close" onClick={() => {
@@ -98,12 +109,11 @@ export default class TaskDetail extends React.Component {
 		          </div>
 		          <div>
 		            <span className="value-name">Due</span>
-		            <input 
+		            <DatePicker 
 		              className="task-input"
-		              onChange={this.handleChange("due_date").bind(this)} 
-		              onBlur={() => this.props.updateTask(this.state)} 
-		              type="date" 
-		              value={this.state.due_date} />
+		              onChange={this.handleDateChange.bind(this)} 
+		              onBlur={this.handleBlur.bind(this)}
+		              selected={moment(this.state.due_date)} />
 		          </div>
 		          <div>
 		            <span className="value-name">Estimate</span>
