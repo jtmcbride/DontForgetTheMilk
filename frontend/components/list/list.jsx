@@ -11,16 +11,48 @@ export default class List extends React.Component {
 			complete: false,
 			sort: ""
 		}
-	};
+	}
 
 	componentDidMount() {
 		this.props.fetchLists();
 	}
 
+	sortTasks() {
+		let tasks = this.props.tasks[this.state.completed ? "completed" : "incomplete"];
+		let taskIds = Object.keys(tasks);
+		if (this.state.sort === "estimate") {
+			return taskIds.sort((t1, t2) => tasks[t2].estimate - tasks[t1].estimate);
+		} else if (this.state.sort === "due_date" || this.state.sort === "start_date") {
+			return taskIds.sort((t1, t2) => {
+				if (tasks[t1][this.state.sort] && tasks[t2][this.state.sort]){
+					console.log(t1, t2)
+					return new Date(tasks[t1][this.state.sort]) - new Date(tasks[t2][this.state.sort])
+				} else if (tasks[t1][this.state.sort]) {
+					return -1;
+				} else if (tasks[t1][this.state.sort]) {
+					return 1;
+				} else {
+					return 0;
+				}
+			});
+		} else if(this.state.sort === "priority"){
+			return taskIds.sort((t1, t2) => tasks[t1].priority - tasks[t2].priority);
+		} else {
+			return taskIds;
+		}
+
+	}
+
 
 	tasks() {
+		let keys;
+		if (this.state.sort) {
+			keys = this.sortTasks()
+		} else {
+			keys = Object.keys(this.props.tasks.incomplete)
+		}
 		if (!this.state.complete) {
-			return Object.keys(this.props.tasks.incomplete)
+			return keys
 				.map( taskId => (
 					<Task key={taskId} 
 						task={this.props.tasks.incomplete[taskId]} 
@@ -28,23 +60,57 @@ export default class List extends React.Component {
 					)
 				);
 		} else {
-			return Object.keys(this.props.tasks.completed).map( taskId => <Task key={taskId} task={this.props.tasks.completed[taskId]} />)
+			return Object.keys(this.props.tasks.completed)
+				.map( taskId => (
+					<Task key={taskId} 
+						task={this.props.tasks.completed[taskId]}/>
+					)
+				);
 		}
 	}
 
 
 	listTabs() {
 		if (this.state.complete) {
-			
-			return (<ul className="list-tabs">
+			return (
+				<div className="tabs">
+					<ul className="list-tabs">
 						<li className="inactive" onClick={this.handleTabClick.bind(this)}>Incomplete</li>
 						<li className="active">Completed</li>
-					</ul>)
+						<li>
+							<select value={this.state.sort} onChange={e => this.setState({sort: e.target.value})}>
+								<option disabled value="">Sort by...</option>
+								<option value="">Time Created</option>
+								<option value="due_date">Due Date</option>
+								<option value="priority">Priority</option>
+								<option value="start_date">Start Date</option>
+								<option value="estimate">Estimate</option>
+							</select>
+						</li>
+					</ul>
+					<span>ello</span>
+				</div>
+			)
 		} else {
-			return (<ul className="list-tabs">
+			return (
+				<div className="tabs">
+					<ul className="list-tabs">
 						<li className="active">Incomplete</li>
 						<li className="inactive" onClick={this.handleTabClick.bind(this)}>Completed</li>
-					</ul>)
+						<li>
+							<select className="sort-select" value={this.state.sort} onChange={e => this.setState({sort: e.target.value})}>
+								<option disabled value="">Sort by...</option>
+								<option value="">Time Created</option>
+								<option value="due_date">Due Date</option>
+								<option value="priority">Priority</option>
+								<option value="start_date">Start Date</option>
+								<option value="estimate">Estimate</option>
+							</select>
+						</li>
+					</ul>
+					
+				</div>
+			)
 		}
 	}
 
@@ -57,26 +123,16 @@ export default class List extends React.Component {
 		if (this.state.complete){
 			return (
 				<main className="list">
-					<select placeholder="Sort by...">
-						<option>Due Date</option>
-						<option></option>
-						<option></option>
-					</select>
-					<div className="tabs">
-						{this.listTabs()}
-					</div>
+					{this.listTabs()}
 					<ul className="tasks">
 						{this.tasks()}
 					</ul>
 				</main>
-
 			)
 		} else {
 			return (
 				<main className="list">
-					<div className="tabs">
 						{this.listTabs()}
-					</div>
 					<TaskForm submitTask={this.props.submitTask} listId={this.props.list.id} />
 					<ul className="tasks">
 						{this.tasks()}

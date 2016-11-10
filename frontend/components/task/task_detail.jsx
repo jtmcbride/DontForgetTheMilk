@@ -69,6 +69,7 @@ export default class TaskDetail extends React.Component {
 
 
 	render() {
+		console.log("detail render")
 		return (
 			<section className="task-detail detail">
 				<div className="close" onClick={() => {

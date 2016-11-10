@@ -7,8 +7,9 @@ class CreateTasks < ActiveRecord::Migration
       t.boolean :completed, default: false
       t.date :start_date
       t.date :due_date
-      t.integer :priority
-      t.integer :estimate
+      t.datetime :date_completed
+      t.integer :priority, default: 99
+      t.integer :estimate, default: 0
 
       t.timestamps null: false
     end

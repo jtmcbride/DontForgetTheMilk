@@ -195,7 +195,7 @@ header .header-settings {
 	display: flex;
 	justify-content: space-between;
 	top: 25px;
-	width: 160px;
+	width: 255px;
 	padding-right: 10px;
 }
 
@@ -216,6 +216,11 @@ header .header-settings {
 
 .list-tabs > li.inactive {
 	color:  #0060BF;
+}
+
+.sort-select {
+	border: none;
+	width: 100px;
 }
 
 .task-form {

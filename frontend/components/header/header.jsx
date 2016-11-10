@@ -21,6 +21,7 @@ class Header extends React.Component {
 
 	handleSearch() {
 		this.props.search($("#search").val());
+		$("#search").val()
 		this.props.router.push("app/search");
 	}
 
