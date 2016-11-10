@@ -19,7 +19,8 @@ class Header extends React.Component {
 		this.props.logout();
 	}
 
-	handleSearch() {
+	handleSearch(e) {
+		e.preventDefault();
 		this.props.search($("#search").val());
 		$("#search").val()
 		this.props.router.push("app/search");
@@ -33,7 +34,7 @@ class Header extends React.Component {
 				<div className="header-main">
 					<form className="header-search">
 						<input id="search" aria-label="Search Tasks" placeholder="Search Tasks" />
-						<div className="search-button" id="header-search-button" onClick={this.handleSearch.bind(this)}></div>
+						<button className="search-button" id="header-search-button" onClick={this.handleSearch.bind(this)}></button>
 					</form>
 					<div className="header-settings">
 						<span className="notifications"></span>

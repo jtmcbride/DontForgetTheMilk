@@ -90,7 +90,7 @@ export default class ListForm extends React.Component {
 		          style={this.customStyles}
 		          contentLabel="New List">
 				  <h2 ref="subtitle">{this.state.formType === "create" ? "Create List" : "Update List"}</h2>
-		          <button onClick={this.closeModal}>Close</button>
+		          <div className="close-modal" onClick={this.closeModal}>Close X</div>
 		          <form className="modal-form">
 			          <label>
 				           Title: <br />

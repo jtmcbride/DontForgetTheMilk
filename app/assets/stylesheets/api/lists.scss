@@ -38,6 +38,8 @@ header.header {
 	border: 1px solid #3380CC;
 	border-radius: 3px;
 	margin-left: 5px;
+	background: none;
+	font-size: 14px;
 }
 
 .header-search input {
@@ -638,6 +640,26 @@ nav.sidebar {
 	font-size: 26px;
 	padding-left: 10px;
 	padding-right: 10px;
+	border-radius: 4px;
+}
+
+.ReactModalPortal h2 {
+	display: inline-block;
+}
+
+.ReactModalPortal .close-modal {
+	cursor: pointer;
+	font-size: 14px;
+	float: right;
+	color: grey;
+}
+
+.ReactModalPortal .close-modal:hover {
+	color: black;
+}
+
+.ReactModalPortal * {
+	margin-left: 15px;
 }
 
 
