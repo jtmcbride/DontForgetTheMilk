@@ -1,4 +1,4 @@
-import { RECEIVE_LIST, RECEIVE_CREATED_LIST, RECEIVE_LISTS, RECEIVE_LIST_ERRORS, REMOVE_LIST, RECEIVE_PSEUDO_LIST } from '../actions/list_actions';
+import { RECEIVE_LIST, RECEIVE_CREATED_LIST, CLEAR_ERRORS, RECEIVE_LISTS, RECEIVE_LIST_ERRORS, REMOVE_LIST, RECEIVE_PSEUDO_LIST } from '../actions/list_actions';
 import { RECEIVE_CREATED_TASK, DESTROY_TASK } from '../actions/task_actions';
 import { LOGOUT } from '../actions/session_actions';
 import merge from 'lodash/merge';
@@ -32,13 +32,16 @@ const ListReducer  = (state = { lists: {}, list: {}, errors: [] }, action) => {
     case RECEIVE_LIST_ERRORS:
       newState = merge({}, state, { errors: action.errors });
       return newState;
+    case CLEAR_ERRORS:
+      newState = merge({}, state);
+      newState.errors = [];
+      return newState;
     case RECEIVE_CREATED_TASK:
       if (action.task.list_id === 0) {return state;}
       newState = merge({}, state)
       newState.lists[action.task.list_id].count++;
       return newState;
     case DESTROY_TASK:
-      debugger;
       if (action.task.list_id === 0) {return state;}
       newState = merge({}, state)
       newState.lists[action.task.list_id].count--;

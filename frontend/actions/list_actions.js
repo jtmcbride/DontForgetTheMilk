@@ -9,6 +9,7 @@ export const RECEIVE_LISTS = "RECEIVE_LISTS";
 export const RECEIVE_LIST_ERRORS = "RECEIVE_LIST_ERRORS";
 export const REMOVE_LIST = "REMOVE_LIST";
 export const RECEIVE_PSEUDO_LIST = "RECEIVE_PSEUDO_LIST";
+export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
 export const createList = list => ({
   type: CREATE_LIST,
@@ -62,5 +63,9 @@ export const updateList = list => ({
   type: UPDATE_LIST,
   list
 });
+
+export const clearErrors = () => ({
+  type: CLEAR_ERRORS
+})
 
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createList, destroyList, updateList } from '../../actions/list_actions';
+import { createList, destroyList, updateList, clearErrors } from '../../actions/list_actions';
 import SidebarNav from './nav';
 
 
@@ -11,9 +11,10 @@ const mapStateToProps = ({ list, router }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  createList: (list) => dispatch(createList(list)),
+  createList: list => dispatch(createList(list)),
   destroyList: listId => dispatch(destroyList(listId)),
-  updateList: list => dispatch(updateList(list))
+  updateList: list => dispatch(updateList(list)),
+  clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(

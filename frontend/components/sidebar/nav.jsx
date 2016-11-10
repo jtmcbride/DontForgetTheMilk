@@ -77,9 +77,22 @@ class SidebarNav extends React.Component {
 			);
 	}
 
+	errors() {
+
+		let error = [];
+		setTimeout(() => this.props.clearErrors(), 1500);
+		return (
+			<div className="errors-fade">
+				{"You already have a list with that title"}
+			</div>
+		)
+
+	}
+
 	render() {
 		return (
 			<nav className="sidebar">
+				{ this.props.errors.length > 0 ? this.errors() : null }
 				<h3 className="logo">DON'T FORGET THE MILK</h3>
 				<ul>
 					<li className={this.props.currentListId == "all" ? "list-name active" : "list-name"}>
