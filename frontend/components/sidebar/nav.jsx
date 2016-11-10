@@ -52,8 +52,10 @@ class SidebarNav extends React.Component {
 	handleRemoveListClick(id) {
 		return (e) => {
 			e.stopPropagation();
-			this.props.destroyList(id);
-			this.props.router.push('/app');
+			if (confirm("Do you really want to delete this list? All associated tasks will also be deleted.")) {
+				this.props.destroyList(id);
+				this.props.router.push('/app');
+			}
 		}
 	}
 

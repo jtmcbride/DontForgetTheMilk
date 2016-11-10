@@ -13,6 +13,7 @@ export default class TaskDetail extends React.Component {
 
 		this.state = {
 			id: this.props.task.name ? this.props.task.name : "",
+			list_id: this.props.task.list_id ? this.props.task.list_id : "",
 			name: this.props.task.name ? this.props.task.name : "",
 			estimate: this.props.task.estimate ? this.props.task.estimate : "",
 			start_date: this.props.task.start_date ? moment(this.props.task.start_date) : null,
@@ -76,6 +77,14 @@ export default class TaskDetail extends React.Component {
 
 		this.props.updateTask(newState);
 		this.setState(newState);
+	}
+
+	handleDeleteClick() {
+		debugger;
+		if (confirm("Delete this task?")) {
+			this.props.deleteTask(this.props.task);
+			hashHistory.push(`app/list/${this.props.task.list_id}`)
+		}
 	}
 
 	handleBlur(type) {
@@ -150,6 +159,10 @@ export default class TaskDetail extends React.Component {
 		          <button onClick={this.handleCompletionClick.bind(this)}>
 		          	Mark As{this.state.completed ? " Incomplete" : " Completed"}
 		          </button>
+		          <button className="delete-task" onClick={this.handleDeleteClick.bind(this)}>
+		          	Delete Task
+		          </button>
+
 				</section>
 			</section>
 		);

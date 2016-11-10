@@ -18,9 +18,9 @@ export const updateTask = (task, success, error) => {
   });
 };
 
-export const destroyTask = (id, success, error) => {
+export const destroyTask = (task, success, error) => {
   $.ajax({
-    url: `api/tasks/${id}`, 
+    url: `api/tasks/${task.id}`, 
     type: "DELETE",
     success,
     error

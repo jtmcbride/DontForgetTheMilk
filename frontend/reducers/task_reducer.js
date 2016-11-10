@@ -50,7 +50,12 @@ const TaskReducer  = (state = { tasks: {incomplete: {}, completed: {}}, task: {}
     case REMOVE_TASK:
       newState = merge({}, state)
       // newState.tasks[action.id] = undefined;
-      delete newState.tasks[action.id]
+      if (action.task.completed) {
+        delete newState.tasks.completed[action.task.id]
+      } else {
+        delete newState.tasks.incomplete[action.task.id]
+      }
+      if (newState.task.id === action.task.id) { newState.task = {}}
       return newState;
     case RECEIVE_TASK_ERRORS:
       newState = merge({}, state, { errors: action.errors });

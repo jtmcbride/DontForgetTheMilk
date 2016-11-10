@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateTask } from '../../actions/task_actions';
+import { updateTask, destroyTask } from '../../actions/task_actions';
 import TaskDetail from './task_detail';
 
 
@@ -11,8 +11,9 @@ const mapStateToProps = ({ task }) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  updateTask: task => dispatch(updateTask(task))
-  });
+  updateTask: task => dispatch(updateTask(task)),
+  deleteTask: id => dispatch(destroyTask(id))
+});
 
 export default connect(
   mapStateToProps,

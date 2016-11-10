@@ -17,9 +17,9 @@ export const createTask = (task, listId) => ({
   listId
 });
 
-export const destroyTask = id => ({
+export const destroyTask = task => ({
   type: DESTROY_TASK,
-  id
+  task
 });
 
 export const receiveTask = task => ({
@@ -57,9 +57,9 @@ export const fetchTask = id => ({
   id
 });
 
-export const removeTask = id => ({
+export const removeTask = task => ({
   type: REMOVE_TASK,
-  id
+  task
 });
 
 export const updateTask = task => ({

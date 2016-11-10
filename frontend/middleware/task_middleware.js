@@ -20,8 +20,8 @@ export default ({ getState, dispatch }) => next => action => {
       createTask(action.task, action.listId, task => dispatch(receiveCreatedTask(task)), errorCallback);
       return next(action);
     case DESTROY_TASK:
-      destroyTask(action.id, () => dispatch(removeTask(action.id)), error => console.log(error));
-      break;
+      destroyTask(action.task, () => dispatch(removeTask(action.task)), error => console.log(error));
+      return next(action);
     case UPDATE_TASK:
       updateTask(action.task, task => dispatch(receiveUpdatedTask(task)), errorCallback);
       return next(action);
