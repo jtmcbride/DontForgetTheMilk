@@ -17,19 +17,10 @@ class SidebarNav extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		// if (this.props.router.params.id !== nextProps.currentListId) {
-		// 	this.props.router.push(`app/list/${nextProps.currentListId}`)
-		// }
 		this.setState({
 			modalOpen: false
 		});
 	}
-
-	// componentDidUpdate() {
-	// 	// if (this.props.router.params.id !== this.props.currentListId) {
-	// 	// 	this.props.router.push(`app/list/${this.props.currentListId}`)
-	// 	// }
-	// }
 
 
 	handleDropdownClick(e) {
@@ -100,13 +91,18 @@ class SidebarNav extends React.Component {
 		return (
 			<nav className="sidebar">
 				{ this.props.errors.length > 0 ? this.errors() : null }
+				<img className="logo-image" src="http://i.imgur.com/YmJW8rl.png" />
 				<h3 className="logo">DON'T FORGET THE MILK</h3>
 				<ul>
 					<li className={this.props.currentListId == "all" ? "list-name active" : "list-name"}>
 						<Link to="/app/all">All Tasks</Link>
 					</li>	
-					<li className={this.props.currentListId == "today" ? "list-name active" : "list-name"}><Link to="/app/today">Today</Link></li>	
-					<li className={this.props.currentListId == "week" ? "list-name active bordered" : "list-name bordered"}><Link to="/app/week">This Week</Link></li>
+					<li className={this.props.currentListId == "today" ? "list-name active" : "list-name"}>
+						<Link to="/app/today">Today</Link>
+					</li>	
+					<li className={this.props.currentListId == "week" ? "list-name active bordered" : "list-name bordered"}>
+						<Link to="/app/week">This Week</Link>
+					</li>
 					<li className="list-title" onClick={this.collapseList}>
 						<div className="arrow open">▾ </div>Lists
 						<ListForm

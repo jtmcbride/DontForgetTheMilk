@@ -1,67 +1,28 @@
 # Don't Forget The Milk
 
-[Heroku link][heroku]
-
-[Trello link][trello]
-
-[heroku]: http://www.herokuapp.com
-[trello]: https://trello.com
-
-## Minimum Viable Product
-
- Don't Forget The Milk is a todo list app built using Ruby on Rails
-and React/Redux.  By the end of Week 9, this app will, at a minimum, satisfy the
-following criteria with smooth, bug-free navigation, adequate seed data and
-sufficient CSS styling:
-
-- [ ] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
-- [ ] Tasks
-- [ ] Lists
-- [ ] List summary (time, num tasks, num completed)
-- [ ] Task Search
-- [ ] Production README
-
-## Design Docs
-* [View Wireframes][wireframes]
-* [React Components][components]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
-* [Sample State][sample-state]
-
-[wireframes]: docs/wireframes
-[components]: docs/component-hierarchy.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
-
-## Implementation Timeline
-
-### Phase 1: Backend setup and Front End User Authentication (2 days)
-
-**Objective:** Functioning rails project with front-end Authentication
-
-### Phase 2: Tasks Models, API, and components (2 days)
-
-**Objective:** Tasks can be created, read, edited and destroyed through
-the API.
-
-### Phase 3: List Models, API, and components (2 days)
-
-**Objective:** Tasks can be created, read, edited and destroyed through
-the API.
-
-### Phase 4: List Summary (1 day)
-
-**Objective:** Lists have summaries about them displayed when clicked on.
-
-### Phase 5: Search (2 days)
-
-**Objective:** Tasks can be searched and results displayed in a list.
+[Don't Forget The Milk Live Site](http://dontforgetmilk.herokuapp.com)
 
 
-### Bonus Features (TBD)
-- [ ] Tags
-- [ ] Subtasks
-- [ ] Autocomplete
-- [ ] Smart Lists
+Don't Forget The Milk is a sigle page web application allowing users to make and organize to-do lists. It is inspired by Remember The Milk. It is built on a React/Redux frontend with a Ruby on Rails and Postgres backend.
+
+## Features
+
+ Don't Forget The Milk allows users to:
+
+* Create, edit and delete to-do lists
+* Create, edit and delete tasks in to-do lists
+* Edit the name, priority, start date, due date, time estimate and completion of a task.
+* Move tasks between lists.
+* View a summary of a list which includes: number of completed and incomplete tasks, total time of tasks and number of overdue tasks
+* Sort tasks by priority, due date, start date, date created, or time estimate
+* Search for tasks
+* View all tasks or tasks sorted by due date of today or in the next week
+
+## Future Features
+
+I plan to add the following features to Don't Forget the Milk:
+
+* Users can add locations to tasks and view tasks by location using the Google Places API
+* Users receive notification emails reminding them of tasks due or starting the current day
+* Users can add tags to tasks and view tasks based on tags
+* Users can create smart lists based on inclusion or exclusion of words

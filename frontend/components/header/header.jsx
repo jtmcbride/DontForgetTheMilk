@@ -34,7 +34,7 @@ class Header extends React.Component {
 				<div className="header-main">
 					<form className="header-search">
 						<input id="search" aria-label="Search Tasks" placeholder="Search Tasks" />
-						<button className="search-button" id="header-search-button" onClick={this.handleSearch.bind(this)}></button>
+						<button className="search-button" id="header-search-button" onClick={this.handleSearch.bind(this)} />
 					</form>
 					<div className="header-settings">
 						<span className="notifications"></span>

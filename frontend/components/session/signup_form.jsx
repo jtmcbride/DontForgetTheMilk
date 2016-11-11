@@ -46,6 +46,14 @@ class SignupForm extends React.Component {
 		}
 	}
 
+	handleDemo(e) {
+		e.preventDefault();
+		this.props.demoLogin({
+			username: "guest",
+			password: "password"
+		});
+	}
+
 	render(){
 
 	  return (
@@ -85,6 +93,7 @@ class SignupForm extends React.Component {
 						{this.errors("password")}
 
 					<button onClick={this.handleSubmit}>Sign Up!</button>
+					<button onClick={this.handleDemo.bind(this)}>Demo Login</button>
 				</form>
 			</div>
 		  </div>
