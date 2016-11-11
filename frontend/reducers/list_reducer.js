@@ -1,5 +1,5 @@
 import { RECEIVE_LIST, RECEIVE_CREATED_LIST, CLEAR_ERRORS, RECEIVE_LISTS, RECEIVE_LIST_ERRORS, REMOVE_LIST, RECEIVE_PSEUDO_LIST } from '../actions/list_actions';
-import { RECEIVE_CREATED_TASK, DESTROY_TASK } from '../actions/task_actions';
+import { RECEIVE_CREATED_TASK, DESTROY_TASK, RECEIVE_UPDATED_TASK } from '../actions/task_actions';
 import { LOGOUT } from '../actions/session_actions';
 import merge from 'lodash/merge';
 

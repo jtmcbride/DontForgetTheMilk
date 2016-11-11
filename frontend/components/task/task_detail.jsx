@@ -1,16 +1,15 @@
 import React from 'react';
 import merge from 'lodash/merge';
-import {hashHistory } from 'react-router';
+import { hashHistory, withRouter } from 'react-router';
 import moment from 'moment';
 
 import DatePicker from 'react-datepicker';
 
 
-export default class TaskDetail extends React.Component {
+class TaskDetail extends React.Component {
 
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			id: this.props.task.name ? this.props.task.name : "",
 			list_id: this.props.task.list_id ? this.props.task.list_id : "",
@@ -71,6 +70,14 @@ export default class TaskDetail extends React.Component {
 		this.setState({priority: e.target.value}, () => {$('#task-priority').blur()})
 	}
 
+	handleListChange(e) {
+		this.setState({list_id: e.target.value}, () => {
+			$('#task-list').blur()
+			// this.props.updateList(this.props.router.params.id);
+		})
+
+	}
+
 
 	handleCompletionClick() {
 		let newState = merge({}, this.state, {completed: !this.state.completed})
@@ -91,6 +98,12 @@ export default class TaskDetail extends React.Component {
 		return () => {
 			this.props.updateTask({id: this.state.id, [type]: this.state[type] ? this.state[type] : null});
 		}
+	}
+
+	selectListOptions() {
+		return (
+			this.props.lists.map(list => <option key={list.id} value={list.id}>{list.title}</option>)
+		)
 	}
 
 
@@ -145,8 +158,7 @@ export default class TaskDetail extends React.Component {
 		            <span className="value-name">Priority</span>
 		            <select
 		              id="task-priority"
-		         	  className="task-input"
-		              onChange={this.handleChange("priority").bind(this)} 
+		         	  className="task-input" 
 		              onBlur={() => this.props.updateTask(this.state)} 
 		              value={this.state.priority} 
 		              onChange={this.handlePriorityChange.bind(this)}>
@@ -156,6 +168,19 @@ export default class TaskDetail extends React.Component {
 		              	<option>3</option>
 		              </select>
 		          </div>
+		          <div>
+		            <span className="value-name">List</span>
+		            <select
+		              id="task-list"
+		         	  className="task-input"
+		              value={this.state.list_id}
+		              onBlur={() => this.props.updateTask(this.state)}
+		              onChange={this.handleListChange.bind(this)}>
+		              	<option value={null}>No List</option>
+		              	{this.selectListOptions()}
+		              </select>
+		          </div>
+
 		          <button onClick={this.handleCompletionClick.bind(this)}>
 		          	Mark As{this.state.completed ? " Incomplete" : " Completed"}
 		          </button>
@@ -168,3 +193,5 @@ export default class TaskDetail extends React.Component {
 		);
 	}
 }
+
+export default withRouter(TaskDetail);
