@@ -13,6 +13,7 @@ import LoginFormContainer from "./session/login_container";
 import ListContainer from './list/list_container';
 import TaskDetailContainer from './task/task_detail_container';
 
+// actions
 import { fetchList, receivePseudoList } from '../actions/list_actions';
 import { fetchTask, fetchTasks } from '../actions/task_actions';
 
@@ -32,7 +33,7 @@ const Root = ({ store }) => {
   	};
 
   	const setCurrentList = (nextState, replace) => {
-  		store.dispatch(fetchList(nextState.params.id))
+  		store.dispatch(fetchList(nextState.params.id));
   	};
 
   	const setCurrentTask = (nextState, replace) => {

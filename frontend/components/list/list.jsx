@@ -92,7 +92,6 @@ export default class List extends React.Component {
 						<li>
 							<select className="sort-select" value={this.state.sort} onChange={e => this.setState({sort: e.target.value})}>
 								<option disabled value="">Sort by...</option>
-								<option value="">Time Created</option>
 								<option value="due_date">Due Date</option>
 								<option value="priority">Priority</option>
 								<option value="start_date">Start Date</option>
