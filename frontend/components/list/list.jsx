@@ -22,7 +22,9 @@ export default class List extends React.Component {
 		let taskIds = Object.keys(tasks);
 		if (this.state.sort === "estimate") {
 			return taskIds.sort((t1, t2) => tasks[t2].estimate - tasks[t1].estimate);
-		} else if (this.state.sort === "due_date" || this.state.sort === "start_date") {
+		} else if (this.state.sort === "due_date" ||
+					 this.state.sort === "start_date" ||
+					 this.state.sort === "created_at") {
 			return taskIds.sort((t1, t2) => {
 				let date1 = tasks[t1][this.state.sort] ? new Date(tasks[t1][this.state.sort]) : new Date(9999999999999)
 				let date2 = tasks[t2][this.state.sort] ? new Date(tasks[t2][this.state.sort]) : new Date(9999999999999)
@@ -92,6 +94,7 @@ export default class List extends React.Component {
 						<li>
 							<select className="sort-select" value={this.state.sort} onChange={e => this.setState({sort: e.target.value})}>
 								<option disabled value="">Sort by...</option>
+								<option value="created_at">Date Created</option>
 								<option value="due_date">Due Date</option>
 								<option value="priority">Priority</option>
 								<option value="start_date">Start Date</option>

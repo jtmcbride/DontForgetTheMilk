@@ -87,7 +87,6 @@ class TaskDetail extends React.Component {
 	}
 
 	handleDeleteClick() {
-		debugger;
 		if (confirm("Delete this task?")) {
 			this.props.deleteTask(this.props.task);
 			hashHistory.push(`app/list/${this.props.task.list_id}`)
