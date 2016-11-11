@@ -373,6 +373,7 @@ header .header-settings {
 	float: right;
 	margin: 10px;
 	color: grey;
+	font-size: 12px;
 	cursor: pointer;
 }
 
@@ -427,7 +428,8 @@ header .header-settings {
 
 .task-input.datepicker {
 	width: 100px;
-	margin-bottom: 0
+	margin-bottom: 0;
+	padding: 3px;
 }
 
 .task-input:hover {
@@ -445,7 +447,7 @@ header .header-settings {
 
 
 header .task-input {
-	width: 80%;
+	width: 75%;
 	font-size: 24px;
 	resize: none
 }
@@ -464,12 +466,27 @@ nav.sidebar {
 }
 
 .sidebar .list-name.bordered {
-	border-bottom: 2px solid black;
+	border-bottom: 2px solid rgb(180, 208, 235);
 }
 
 .list-title {
 	display: inline-block;
 }
+
+.list-title .arrow {
+	display: inline-block;
+	transform: rotate(0deg);
+	transition: transform 500ms ease-in-out;
+	margin-left: -3px;
+}
+
+.list-title .arrow.closed {
+	transform: rotate(-450deg)
+}
+
+// .list-title span {
+// 	transform: rotate(90deg);
+// }
 
 .modal-form-button {
 	float: right;
@@ -574,7 +591,8 @@ nav.sidebar {
 }
 
 .sidebar li {
-	padding: 3px;
+	padding: 4px;
+	padding-right: 8px;
 	word-wrap: border-word;
 	width: 90%;
 }
@@ -588,7 +606,35 @@ nav.sidebar {
 	// background: rgb(180, 205, 235);
 }
 
+.collapsible {
+	opacity: 1;
+	transition: all 500ms linear;
+}
+
+
+.collapsible-container {
+	max-height: 600px;
+	border-bottom: 2px solid rgb(180, 208, 235);
+	transition: max-height 500ms ease-in;
+	overflow-y: visible;
+	padding-left: 5px;
+	width: 90%
+}
+
+
+.collapsible-container.collapsed {
+	max-height: 0px;
+	overflow-y: hidden;
+}
+
+.collapsible-container.collapsed > .collapsible {
+	opacity: 0;
+}
+
+
+
 .sidebar > .logo {
+	curosr: default;
 	text-align: center;
 	margin: 5px;
 	margin-top: 8px;

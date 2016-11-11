@@ -26,7 +26,8 @@ export default class ListForm extends React.Component {
 		this.closeModal = this.closeModal.bind(this);
 	}
 
-	openModal() {
+	openModal(e) {
+		e.stopPropagation();
 	    this.setState({modalIsOpen: true, formType: "create"});
 	}
 

@@ -89,6 +89,13 @@ class SidebarNav extends React.Component {
 
 	}
 
+
+	collapseList() {
+		$('.collapsible-container').toggleClass('collapsed');
+		$('.arrow').toggleClass('closed');
+
+	}
+
 	render() {
 		return (
 			<nav className="sidebar">
@@ -96,12 +103,12 @@ class SidebarNav extends React.Component {
 				<h3 className="logo">DON'T FORGET THE MILK</h3>
 				<ul>
 					<li className={this.props.currentListId == "all" ? "list-name active" : "list-name"}>
-						<Link to="/app/all" className="list-title">All Tasks</Link>
+						<Link to="/app/all">All Tasks</Link>
 					</li>	
-					<li className={this.props.currentListId == "today" ? "list-name active" : "list-name"}><Link to="/app/today" className="list-title">Today</Link></li>	
-					<li className={this.props.currentListId == "week" ? "list-name active bordered" : "list-name bordered"}><Link to="/app/week" className="list-title">This Week</Link></li>
-					<li className="list-title">
-						Lists
+					<li className={this.props.currentListId == "today" ? "list-name active" : "list-name"}><Link to="/app/today">Today</Link></li>	
+					<li className={this.props.currentListId == "week" ? "list-name active bordered" : "list-name bordered"}><Link to="/app/week">This Week</Link></li>
+					<li className="list-title" onClick={this.collapseList}>
+						<div className="arrow open">▾ </div>Lists
 						<ListForm
 							open={this.state.modalOpen} 
 							updateId={this.state.updateId} 
@@ -111,14 +118,16 @@ class SidebarNav extends React.Component {
 							createList={this.props.createList} 
 						/>
 					</li>
-					<ul>
-						<ReactCSSTransitionGroup
-				          transitionName="title-transition"
-				          transitionEnterTimeout={500}
-				          transitionLeaveTimeout={300}>
-							{this.listTitles()}
-						</ReactCSSTransitionGroup>
-					</ul>
+					<div className="collapsible-container">
+						<ul className="collapsible">
+							<ReactCSSTransitionGroup
+					          transitionName="title-transition"
+					          transitionEnterTimeout={500}
+					          transitionLeaveTimeout={300}>
+								{this.listTitles()}
+							</ReactCSSTransitionGroup>
+						</ul>
+					</div>
 				</ul>
 			</nav>
 		)
