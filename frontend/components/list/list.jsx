@@ -24,16 +24,9 @@ export default class List extends React.Component {
 			return taskIds.sort((t1, t2) => tasks[t2].estimate - tasks[t1].estimate);
 		} else if (this.state.sort === "due_date" || this.state.sort === "start_date") {
 			return taskIds.sort((t1, t2) => {
-				if (tasks[t1][this.state.sort] && tasks[t2][this.state.sort]){
-					console.log(t1, t2)
-					return new Date(tasks[t1][this.state.sort]) - new Date(tasks[t2][this.state.sort])
-				} else if (tasks[t1][this.state.sort]) {
-					return -1;
-				} else if (tasks[t1][this.state.sort]) {
-					return 1;
-				} else {
-					return 0;
-				}
+				let date1 = tasks[t1][this.state.sort] ? new Date(tasks[t1][this.state.sort]) : new Date(9999999999999)
+				let date2 = tasks[t2][this.state.sort] ? new Date(tasks[t2][this.state.sort]) : new Date(9999999999999)
+				return date1 - date2;
 			});
 		} else if(this.state.sort === "priority"){
 			return taskIds.sort((t1, t2) => tasks[t1].priority - tasks[t2].priority);

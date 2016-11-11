@@ -27,7 +27,6 @@ export default ({ getState, dispatch }) => next => action => {
       updateTask(action.task, task => dispatch(receiveUpdatedTask(task)), errorCallback);
       return next(action);
     case RECEIVE_UPDATED_TASK:
-      debugger;
       if (action.task.list_id !== getState().list.list.id) {
         dispatch(fetchList(getState().list.list.id))
       }
