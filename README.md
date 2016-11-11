@@ -29,6 +29,32 @@ Within any list the tasks can be sorted based on their dates, prirority or the e
 
 ![alt-tag](docs/screenshots/task-sorting.gif)
 
+
+## Efficient SQL
+
+In order to keep the site responding quickly the SQL queries are optimized to reduce requests to the database. In this code the users lists are loaded along with the count of the tasks in each to be sent and displayed in the frontend.
+
+```ruby
+
+  def self.user_lists_with_task_count(user)
+    self.find_by_sql(<<-SQL)
+      SELECT 
+        lists.*, 
+        COUNT(tasks.*) AS count 
+      FROM
+        lists
+      INNER JOIN 
+        tasks
+      ON 
+        tasks.list_id = lists.id 
+      WHERE 
+        lists.user_id = #{user.id} AND tasks.completed = false
+      GROUP BY 
+        lists.id
+    SQL
+  end
+  ```
+
 ## Future Features
 
 I plan to add the following features to Don't Forget the Milk:
