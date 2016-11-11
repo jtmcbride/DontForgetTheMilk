@@ -21,9 +21,11 @@ Don't Forget The Milk is a single page web application allowing users to make an
 
 Because Don't Forget The Milk is a single page web app, the user is never redirected from the root URL. By using the React Router package Don't Forget The Milk is able to give every location in the app a descriptive URL without reloading the page. This allows a user to navigate smoothly using the back and forward buttons and even to navigate to a specific list or task with a bookmarked URL.
 
+![alt-tag](docs/screenshots/url-navigation.gif)
+
 ## Task Sorting
 
-Within any list the tasks can be sorted based on their dates, prirority or the estimated time they will take. This feature automatically updates the order of tasks when they are updated.
+Within any list the tasks can be sorted based on their dates, prirority or the estimated time they will take. This feature automatically updates the order of tasks when they are updated. 
 
 ![alt-tag](docs/screenshots/task-sorting.gif)
 
