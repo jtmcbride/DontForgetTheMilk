@@ -278,7 +278,8 @@ header .header-settings {
 }
 
 .tasks a > div {
-	padding: 5px 0;
+	padding: 6px 0;
+	height: 20px;
 	width: 90%;
 	display: flex;
 	overflow-wrap: break-word;
@@ -326,6 +327,7 @@ header .header-settings {
 .task .task-due {
 	margin-right: 5px;
 	font-size: 12px;
+	line-height: 20px;
 	color: grey;
 	width: 100px;
 }

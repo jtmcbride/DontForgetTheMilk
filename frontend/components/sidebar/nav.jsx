@@ -91,7 +91,7 @@ class SidebarNav extends React.Component {
 		return (
 			<nav className="sidebar">
 				{ this.props.errors.length > 0 ? this.errors() : null }
-				<img className="logo-image" src="http://i.imgur.com/YmJW8rl.png" />
+				<img className="logo-image" src="https://i.imgur.com/YmJW8rl.png" />
 				<h3 className="logo">DON'T FORGET THE MILK</h3>
 				<ul>
 					<li className={this.props.currentListId == "all" ? "list-name active" : "list-name"}>
