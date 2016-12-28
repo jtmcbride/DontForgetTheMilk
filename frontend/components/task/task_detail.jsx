@@ -87,10 +87,10 @@ class TaskDetail extends React.Component {
 	}
 
 	handleDeleteClick() {
-		if (confirm("Delete this task?")) {
+		// if (confirm("Delete this task?")) {
 			this.props.deleteTask(this.props.task);
 			hashHistory.push(`app/list/${this.props.task.list_id}`)
-		}
+		// }
 	}
 
 	handleBlur(type) {
