@@ -2,7 +2,7 @@
 
 [Live Site](http://dontforgetmilk.herokuapp.com)
 
-Don't Forget The Milk is a single page web application allowing users to make and organize to-do lists. It is inspired by Remember The Milk. It is built on a React/Redux frontend with a Ruby on Rails and Postgres backend.
+Don't Forget The Milk is a single page web application allowing users to make and organize to-do lists. It is inspired by Remember The Milk. It is built on a React/Redux frontend with a Ruby on Rails and PostgreSQL backend.
 
 ## Features
 
